@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/fragments/layouts/base_layout}">
+<head>
+    <title>Home Page</title>
+    <script>
+        function updatePattern() {
+            var granularity = document.getElementById('granularity').value;
+            var inputField1 = document.getElementById('ProStaff');
+            var inputField2 = document.getElementById('AdminStaff');
+
+            if (granularity === 'ONE') {
+                inputField1.pattern = "\\d+(\\.0)?";  // Only integers
+                inputField1.title = "Please enter a valid integer.";
+                inputField2.pattern = "\\d+(\\.0)?";  // Only integers
+                inputField2.title = "Please enter a valid integer.";
+            } else if (granularity === 'HALF') {
+                inputField1.pattern = "\\d+(\\.0|\\.5)?";  // Integers or half-integers
+                inputField1.title = "Please enter a valid number (e.g., 0.5, 1, 1.5).";
+                inputField2.pattern = "\\d+(\\.0|\\.5)?";  // Integers or half-integers
+                inputField2.title = "Please enter a valid number (e.g., 0.5, 1, 1.5).";
+            }
+        }
+    </script>
+</head>
+<body>
+<section layout:fragment="content">
+    <h1 style="text-align: center; font-weight: bold; font-size: x-large;margin-top: 20px"
+        class="text-4xl font-extrabold dark:text-white">Create New Leave Type</h1>
+    <div class="content">
+        <form action="#" th:action="@{/admin/addNewLeaveType}" th:object="${leavetype}" method="POST">
+            <div class="grid gap-6 mb-6 md:grid-cols-2">
+                <div>
+                    <label for="LeaveType" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                           style="text-align: left">Leave Type</label>
+                    <input id="LeaveType" type="text" required th:field="*{leaveType}" placeholder="LeaveType"
+                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    >
+                </div>
+
+                <div>
+                    <label for="granularity" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                           style="text-align: left">Granularity</label>
+
+                    <select id="granularity" th:field="*{granularity}" onchange="updatePattern()" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option th:value="ONE">ONE</option>
+                        <option th:value="HALF">HALF</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="ProStaff" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                           style="text-align: left">Professional Staff Total Balance</label>
+                    <input id="ProStaff"
+                           type="text" pattern="\d+(\.0)?" title="Please Enter Valid Number" th:field="*{professionalInitBalance}" placeholder="Professional Staff"
+                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    >
+                </div>
+                <div>
+                    <label for="AdminStaff" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                           style="text-align: left">Administrative Staff Total Balance</label>
+                    <input id="AdminStaff" type="text" pattern="\d+(\.0)?" title="Please Enter Valid Number" th:field="*{administrativeInitBalance}" placeholder="Administrative Staff"
+                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    >
+                </div>
+
+            </div>
+            <div style="display: flex;justify-content: center;align-items: center">
+            <button type="button" onclick="window.location.href='/admin/viewLeaveType'"
+                    class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-500
+                    focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100
+                    hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700
+                    dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover
+                    :bg-gray-700">Cancel</button>
+            <button type="submit"
+                    class="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-white
+                    bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300
+                    font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600
+                    dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                Create
+            </button>
+            </div>
+        </form>
+    </div>
+
+</section>
+</body>
+</html>

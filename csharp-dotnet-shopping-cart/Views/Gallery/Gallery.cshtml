@@ -1,0 +1,113 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+
+    List<Product> products = ViewBag.products;
+    int p_Len = products.Count;
+    int numOfGoods = ViewBag.numOfGoods;
+    User user = ViewBag.user;
+    string searchStr = ViewBag.SearchInput;
+
+    <link rel="stylesheet" href="~/css/navbar.css" />
+    <link rel="stylesheet" href="~/css/gallery.css" />
+}
+
+@section Scripts
+{
+    <script src="/js/Gallery.js"> </script>
+}
+
+<body>
+@if(user == null)
+{
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <h4 class="navbar-brand"><span class="fw-bold text-secondary">Product Gallery</span></h4>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Account" asp-action="Login">Login</a>
+                    </li>
+                </ul>
+                <span class="navbar-text">
+                    <a href="/Cart/Index"><img src="/images/cart.jpg" width="35" height="30"></a>
+                    <span class="badge" style="color:black" id="numOfGoods">@numOfGoods</span>
+                </span>
+            </div>
+        </div>
+    </nav>
+}
+else
+{
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <h4 class="navbar-brand"><span class="fw-bold text-secondary" id="greet">Hi,@user.FirstName @user.LastName</span></h4>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Purchase" asp-action="Index">My Purchase</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link">|</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Account" asp-action="Logout">Logout</a>
+                        <div id="notenough"></div>
+                    </li>
+                </ul>
+                <span class="navbar-text">
+                    <a href="/Cart/Index"><img src="/images/cart.jpg" width="35" height="30"></a>
+                    <span class="badge" style="color:black" id="numOfGoods">@numOfGoods</span>
+                </span>
+            </div>
+        </div>
+    </nav>
+
+}
+
+
+
+    <form id="searchBar" action="/Gallery/Gallery" method="post">
+        <input type="text" name="searchInput" id="searchInput" placeholder="Enter your search here" value="@searchStr" oninput="checkSearchBarCleared()">
+    </form>
+
+    <div id=" DisplayGoods">
+        <table>
+            @for (int i = 1; i <= p_Len; i++)
+            {
+                @if (i % 3 == 1)
+                {
+                    <tr>
+                        @for (int j = 0; j < 3; j++)
+                        {
+                            if (products.Count == 0)
+                            {
+                                @* <td>
+                                    <div class="product-card"></div> <!-- Empty div for consistent styling -->
+                                </td> *@
+                            }
+                            else
+                            {
+                                var p = products[0];
+                                products.RemoveAt(0);
+                                <td>
+                                    <div class="product-card">
+                                        <img src="/images/@p.ImageName">
+                                        <p><b>@p.ProductName</b></p>
+                                        <p>@p.Description</p>
+                                        <form>
+                                            <p><input type="button" value="$@p.UnitPrice -Add to Cart" onclick="UpdateCartNum(@p.ProductID)"></p>
+                                        </form>
+                                    </div>
+                                </td>
+                            }
+                        }
+                    </tr>
+                }
+
+            }
+        </table>
+    </div>
+
+</body>

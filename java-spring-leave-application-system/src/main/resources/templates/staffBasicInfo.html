@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/fragments/layouts/base_layout}">
+<head>
+    <title>Staff Basic details</title>
+    <style>
+        .input-field {
+            width: 400px;
+        }
+        .error-message {
+            position: absolute;
+            text-align: center;
+            margin-top: 4px;
+            color:red;
+        }
+        .flex {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+<section layout:fragment="content">
+
+    <div>
+        <div th:if="${staff.username == null}">
+            <h1 style="text-align: center; font-weight: bold; font-size: x-large"
+                class="text-4xl font-extrabold dark:text-white"> Create Staff</h1>
+        </div>
+        <div th:if="${staff.username != null}">
+            <h1 style="text-align: center; font-weight: bold; font-size: x-large"
+                class="text-4xl font-extrabold dark:text-white">Staff Basic Details</h1>
+        </div>
+        <form action="#" th:action="@{/admin/saveNewStaff}" th:if="${staff.username == null}"
+              th:object="${staff}" method="post">
+            <div class="flex flex-col gap-6 mb-6 justify-center items-center">
+                <div>
+                    <label for="firstName_new" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First name</label>
+                    <input type="text" id="firstName_new" name="firstName"
+                           class="input-field bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                    <div th:if="${#fields.hasErrors('firstName')}" class="error-message" th:errors="*{firstName}">First Name Error</div>
+                </div>
+                <div>
+                    <label for="lastName_new" class=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last name</label>
+                    <input type="text" id="lastName_new" name="lastName" class="input-field bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                    <div th:if="${#fields.hasErrors('lastName')}" class="error-message" th:errors="*{lastName}">Last Name Error</div>
+                </div>
+                <div>
+                    <label for="email_new" class=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email address</label>
+                    <input type="email" id="email_new" name="email" class="input-field bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                    <div th:if="${#fields.hasErrors('email')}" class="error-message" th:errors="*{email}">Email Error</div>
+                </div>
+                <div>
+                    <label for="phoneNumber_new" class=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone number</label>
+                    <input type="tel" id="phoneNumber_new" name="phoneNumber" class="input-field bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                    <div th:if="${#fields.hasErrors('phoneNumber')}" class="error-message" th:errors="*{phoneNumber}">Phone Number Error</div>
+                </div>
+                <div>
+                    <label for="designation_new" class=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Designation</label>
+                    <select name="designation" id="designation_new" class="input-field bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option value="" disabled selected>Choose a designation</option>
+                        <option value="Administrative">Administrative</option>
+                        <option value="Professional">Professional</option>
+                    </select>
+                    <div th:if="${#fields.hasErrors('designation')}" class="error-message" th:errors="*{designation}">Designation Error</div>
+                </div>
+                <div>
+                <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                </div>
+            </div>
+        </form>
+
+        <form action="#" th:action="@{/admin/editStaffBasic}" th:if="${staff.username != null}"
+              th:object="${staff}" method="post">
+
+            <div class="grid gap-6 mb-6 md:grid-cols-2">
+                <div>
+                    <label for="id" class=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">User Id</label>
+                    <input type="text" id="id" name="id" th:value="${staff.id}"
+                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" readonly />
+                </div>
+                <div>
+                    <label for="username" class=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Username</label>
+                    <input type="text" id="username" name="username" th:value="${staff.username}"
+                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" readonly />
+                </div>
+                <div>
+                    <label for="firstName" class=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">First name</label>
+                    <input type="text" id="firstName" name="firstName" th:value="${staff.firstName}"
+                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                    <div th:if="${#fields.hasErrors('firstName')}" class="error-message" th:errors="*{firstName}">First Name Error</div>
+                </div>
+                <div>
+                    <label for="lastName" class=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last name</label>
+                    <input type="text" id="lastName" name="lastName" th:value="${staff.lastName}"
+                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                    <div th:if="${#fields.hasErrors('lastName')}" class="error-message" th:errors="*{lastName}">Last Name Error</div>
+                </div>
+                <div>
+                    <label for="email" class=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email address</label>
+                    <input type="email" id="email" name="email" th:value="${staff.email}"
+                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                    <div th:if="${#fields.hasErrors('email')}" class="error-message" th:errors="*{email}">Email Error</div>
+                </div>
+                <div>
+                    <label for="phoneNumber" class=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone number</label>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" th:value="${staff.phoneNumber}"
+                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required />
+                    <div th:if="${#fields.hasErrors('phoneNumber')}" class="error-message" th:errors="*{phoneNumber}">Phone Number Error</div>
+                </div>
+                <div>
+                    <label for="designation" class=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Designation</label>
+                    <select name="designation" id="designation" class=" bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option value="Administrative" th:selected="${staff.designation.name()=='Administrative'}">
+                            Administrative</option>
+                        <option value="Professional" th:selected="${staff.designation.name()=='Professional'}">
+                            Professional</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="managedBy" class=" block mb-2 text-sm font-medium text-gray-900 dark:text-white">Managed By:</label>
+                    <a id="managedBy" class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                            th:if="${staff.managedBy != null}"
+                       th:href="@{/admin/staffBasicInfo(id=${staff.managedBy.id})}"
+                       th:text="${staff.managedBy.firstName+' '+staff.managedBy.lastName}"></a>
+                    <p class="font-medium dark:text-blue-500"
+                            th:if="${staff.managedBy == null}">null</p>
+                    <input type="hidden" th:field="${staff.managedBy}">
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <div>
+                    <a class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+                       th:href="@{/admin/staffAdvancedDetails(id=${staff.id})}">Advanced Details</a>
+                </div>
+                <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                    Save</button>
+                <br/>
+            </div>
+        </form>
+    </div>
+</section>
+</body>
+</html>

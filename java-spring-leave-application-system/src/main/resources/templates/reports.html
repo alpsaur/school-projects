@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/fragments/layouts/base_layout}">
+<head>
+    <title>Generate Report</title>
+    <style>
+        .error {
+            color: red;
+            font-size: 0.875em;
+        }
+    </style>
+    <script>
+        function validateForm() {
+            let startDate = document.getElementById("startDate").value;
+            let endDate = document.getElementById("endDate").value;
+            let startDateError = document.getElementById("startDateError");
+            let endDateError = document.getElementById("endDateError");
+
+            startDateError.textContent = "";
+            endDateError.textContent = "";
+
+            if (!startDate) {
+                startDateError.textContent = "Start date is required.";
+                return false;
+            }
+            if (!endDate) {
+                endDateError.textContent = "End date is required.";
+                return false;
+            }
+            if (new Date(startDate) > new Date(endDate)) {
+                endDateError.textContent = "End date must be after start date.";
+                return false;
+            }
+            return true;
+        }
+    </script>
+</head>
+<body>
+<section layout:fragment="content">
+    <h1 class="text-center font-bold text-4xl text-gray-900 dark:text-white mt-8">Generate Reports</h1>
+    <div class="flex justify-center mt-8">
+        <div class="flex space-x-8">
+            <div class="content bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md max-w-md w-full">
+                <h3 class="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Generate Leave Records Report</h3>
+                <form id="leaveForm" action="#" th:action="@{/api/leave/export}" method="post"
+                      onsubmit="return validateForm()">
+                    <label for="leaveRecords" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select
+                        Leave Record Type</label>
+                    <select id="leaveRecords" name="leaveType"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option value="annual">Annual Leave</option>
+                        <option value="medical">Medical Leave</option>
+                        <option value="compensation">Compensation Leave</option>
+                        <option value="all">All</option>
+                    </select>
+                    <label for="startDate" class="block mt-4 mb-2 text-sm font-medium text-gray-900 dark:text-white">Select
+                        Start Date</label>
+                    <input name="startDate" id="startDate" type="date"
+                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+                    <span id="startDateError" class="error"></span>
+                    <label for="endDate" class="block mt-4 mb-2 text-sm font-medium text-gray-900 dark:text-white">Select
+                        End Date</label>
+                    <input name="endDate" id="endDate" type="date"
+                           class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"/>
+                    <span id="endDateError" class="error"></span>
+                    <div class="flex justify-center">
+                        <button type="submit" value="submit"
+                                class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                            Generate Leave Records Report
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="content bg-white dark:bg-gray-800 p-6 rounded-lg shadow-md max-w-md w-full">
+                <h3 class="text-xl font-semibold mb-4 text-gray-900 dark:text-white">Generate Compensation Claims
+                    Report</h3>
+                <form action="#" th:action="@{/api/compensation/export}" method="post">
+                    <label for="staffs" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select
+                        Staff</label>
+                    <select id="staffs" name="searchOption"
+                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                        <option value="" disabled selected>Select a staff</option>
+                        <th:block th:each="staff : ${staffs}">
+                            <option th:value="${staff.id}"
+                                    th:text="${staff.firstName} + ' ' + ${staff.lastName}"></option>
+                        </th:block>
+                        <option th:value="0">All Staff</option>
+                    </select>
+                    <div class="flex justify-center">
+                        <button type="submit" value="submit"
+                                class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
+                            Generate Compensation Report
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

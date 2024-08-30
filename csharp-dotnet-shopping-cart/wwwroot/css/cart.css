@@ -1,0 +1,61 @@
+﻿/*Style for main body: product and purchase information display*/
+.flex-container {
+    display: flex;
+    width: 80%; /* Keeps width controlled */
+    margin-top: 30px;
+    margin-right: auto; /* Centers the flex container horizontally */
+    margin-left: auto; /* Centers the flex container horizontally */
+    justify-content: center; /* Ensures that children are centered within the container if there's extra space */
+    height: auto; 
+    min-height: 300px; /* Ensures that the container has at least a minimum height */
+    align-items: center; /* Centers children vertically within the container */
+    position: relative; /* This makes it a positioning context for absolutely positioned children */
+}
+
+
+.flex-child {
+    flex: 1;
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+    .flex-child:first-child {
+        flex-basis: 36%;
+        flex: 0.5;
+        margin-right: 40px;
+        border: 2px solid black;
+        padding: 15px;
+        text-align: center;
+    }
+
+    .flex-child:last-child {
+        flex-basis: 60%;
+        flex: 1.5;
+        margin-right: 40px;
+        margin-left: 30px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: larger;
+       
+    }
+
+.card-text {
+    text-align: left; /* Aligns the product description to the left */
+}
+
+
+/*words in the notenough div in red color*/
+#notenough {
+    color: red;
+    font-weight:bold;
+}
+
+
+.modal {
+    position: absolute; /* Position the modal absolutely within the nearest positioned ancestor */
+    top: 20%; /* Align it to the top of the flex-container */
+    left: 50%; /* Position it to the left of the flex-container */
+    width: 360px; 
+    z-index: 1000; /* Make sure it appears on top of other content */
+    text-align:center;
+}
+

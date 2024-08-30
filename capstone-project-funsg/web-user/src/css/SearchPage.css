@@ -1,0 +1,13 @@
+.event-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+.item-item{
+    width: calc(25% - 20px);
+    border-radius: 8px;
+    overflow: hidden;
+
+}

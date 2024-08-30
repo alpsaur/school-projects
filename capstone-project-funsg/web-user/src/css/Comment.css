@@ -1,0 +1,48 @@
+
+.comment-card {
+    width: 90%;
+    height: auto;
+    background: white;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    backdrop-filter: blur(10px);
+    padding-bottom: 0.3rem;
+    padding-top: 0.3rem;
+    padding-right: 0.5rem;
+    margin-left: 2rem;
+}
+.comment-img {
+    width: 12%;
+    height: 12%;
+    border-radius: 50%;
+    margin-left: 10px;
+    margin-bottom: 2rem;
+}
+
+
+.textBox {
+    width: calc(100% - 90px);
+    margin-left: 10px;
+    color: black;
+}
+
+.textContent {
+    display: flex;
+    justify-content: space-between;
+}
+
+.span {
+    font-size: 10px;
+}
+
+.comment-user {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.comment-content {
+    font-size: 1.2rem;
+}
+

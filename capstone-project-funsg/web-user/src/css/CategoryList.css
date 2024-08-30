@@ -1,0 +1,20 @@
+.category-height{
+    height: 40px;
+}
+.Category-bg {
+    background-color: white;
+}
+
+.dropdown-menu-custom {
+    background-color: #a2c6e4;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-height: 150px;
+    width: 200px;
+    overflow-y: auto;
+    text-align: center;
+}
+.dropdown-style{
+    list-style-type: none;
+    text-align: center;
+}

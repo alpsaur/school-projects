@@ -1,0 +1,35 @@
+button.btn.searchBtn {
+    background-color: #23c0dc;
+    border-color: #23c0dc;
+    color: white;
+}
+button.btn.searchBtn:hover {
+    background-color: #628fa3;
+    border-color: #628fa3;
+    color: white;
+}
+.custom-bg {
+    background-color: #006B80;
+}
+input.form-control.search-input {
+    width: 400px;
+}
+.user-photo {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+.hr-height {
+    margin-top: -2px;
+    margin-bottom: -2px;
+}
+.NarBar {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+
+

@@ -1,0 +1,142 @@
+.img-container{
+    display:flex;
+    justify-content:center;
+    align-item:center;
+    margin-top:30px;
+    margin-bottom:30px;
+}
+.user-Image{
+    width:10rem;
+    height:10rem;
+}
+.profile-container{
+    width:20%;
+    min-height: 100vh;
+    box-shadow: 0 6px 10px rgba(207, 212, 222, 1);
+    float:left;
+    hr{
+        border: 1px solid #817d7d;
+        width:100%;
+    }
+    h1,h4,h6{
+        color: #006B80;
+        text-align:center;
+    }
+    a{
+        color: #006B80;
+        margin-top:20px;
+        margin-left:20%;
+    }
+}
+/* From Uiverse.io by gharsh11032000 */
+.card-container{
+    width: 80%;
+    height: auto;
+    min-height: 50%;
+    padding-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally if needed */
+
+}
+/* From Uiverse.io by akshat-patel28 */
+.number-card {
+    width: 90%;
+    height: 50%; /* Allow the card to determine its own height */
+    max-height: 10rem; /* Optional: Set a maximum height if needed */
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: rgb(207, 206, 206) 6px 2px 5px , rgb(207, 206, 206) -6px 2px 5px;
+    display: flex;
+    color: white;
+    justify-content: center;
+    position: relative;
+    flex-direction: column;
+    background: linear-gradient(to right, rgb(255, 255, 255), rgb(255, 255, 255));
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+.number-card:hover {
+     box-shadow: rgb(207, 206, 206) 0px 10px 10px , rgb(207, 206, 206) 10px 0px 10px;
+ }
+
+
+.time-container {
+    display: flex;
+}
+.time-text {
+    font-size: 4rem;
+    margin-left: 1.2rem;
+    margin-right: 1rem;
+    font-weight: 600;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: #006B80;
+}
+
+
+
+.day-text {
+    font-size: 20px;
+    margin-top: 1rem;
+    margin-left: 15px;
+    font-weight: 500;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: black;
+}
+
+.moon {
+    font-size: 20px;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    transition: all 0.3s ease-in-out;
+    color: #006B80;
+}
+
+.number-card:hover > .moon {
+    font-size: 23px;
+}
+
+.ListContainer{
+    width: 90%;
+    overflow: hidden; /* Hide overflow to ensure only 3 items are visible */
+    margin: 0 auto;
+    padding-top: 1rem;
+}
+.card-width{
+    width: 20%;
+}
+.host-card-container{
+    display: flex;
+    flex-wrap: wrap; /* Allow cards to wrap onto multiple lines */
+    gap: 20px; /* Add space between cards */
+    justify-content: center; /* Center the cards horizontally */
+    margin: 0 auto; /* Center the container */
+    padding-bottom: 1rem;
+}
+.host-number-card{
+        width: 40%; /* Ensure 2 cards fit in one row with a gap */
+        height: 150px; /* Fixed height for each card */
+        background: #ffffff;
+        border-radius: 15px;
+        box-shadow: rgb(207, 206, 206) 6px 2px 5px, rgb(207, 206, 206) -6px 2px 5px;
+        display: flex;
+        color: white;
+        justify-content: center;
+        align-items: center; /* Center the content vertically */
+        position: relative;
+        flex-direction: column;
+        background: linear-gradient(to right, rgb(255, 255, 255), rgb(255, 255, 255));
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        overflow: hidden;
+
+}
+.host-number-card:hover {
+    box-shadow: rgb(207, 206, 206) 0px 10px 10px , rgb(207, 206, 206) 10px 0px 10px;
+}
+.host-number-card:hover > .moon {
+    font-size: 23px;
+}

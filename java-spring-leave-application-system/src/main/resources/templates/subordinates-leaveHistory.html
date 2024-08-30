@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/fragments/layouts/base_layout}">
+<head>
+    <title>Subordinates Leave History</title>
+    <style>
+        .annual-leave {
+            color: rgb(237, 186, 0);
+        }
+
+        .medical-leave {
+            color: rgb(130, 62, 250);
+        }
+
+        .compensation-leave {
+            color: rgb(255, 89, 107);
+        }
+        .rejected {
+            color: rgb(255, 0, 27);
+        }
+
+        .approved {
+            color: rgb(15, 166, 87);
+        }
+    </style>
+    <script>
+        function updatePageSize() {
+            const pageSize = document.getElementById('pageSizeSelect').value;
+            const currentUrl = window.location.pathname;
+            const searchParams = new URLSearchParams(window.location.search);
+            searchParams.set('size', pageSize);
+            searchParams.set('page', 0); // set to first page
+            window.location.href = `${currentUrl}?${searchParams.toString()}`;
+        }
+    </script>
+</head>
+<body>
+<section layout:fragment="content">
+    <div class="flex justify-end mt-5 mr-20">
+        <div class="inline-flex justify-center rounded-md shadow-sm" role="group" th:if="${session?.usertype == 'manager'}">
+            <a href="/leave/history/personal"  class="btn-primary px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">
+                Personal Leave History
+            </a>
+            <a href="/leave/history/subordinates"  class="btn btn-primary px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-r-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">
+                Subordinates Leave History
+            </a>
+        </div>
+    </div>
+    <div class="content" style="padding-bottom: 0;padding-top: 0" th:if="${!leaveHistory.isEmpty()}">
+        <label for="pageSizeSelect" class="text-sm font-medium text-gray-900 dark:text-white">Records Per Page: </label>
+        <select style="width: 6%;height: 38px;padding: 1px" id="pageSizeSelect" onchange="updatePageSize()" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+            <option th:value="10" th:selected="${size == 10}">10</option>
+            <option th:value="20" th:selected="${size == 20}">20</option>
+            <option th:value="25" th:selected="${size == 25}">25</option>
+        </select>
+    </div>
+    <h1 style="text-align: center; font-weight: bold; font-size: x-large"
+        class="text-4xl font-extrabold dark:text-white">Subordinates Leave History</h1>
+    <div class="content">
+        <p th:if="${leaveHistory.isEmpty()}">No Subordinates Leave History</p>
+
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg" th:if="${!leaveHistory.isEmpty()}">
+
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        Employee Name
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Employee Id
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Leave Category
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Start Date
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        End Date
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Duration
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Status
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                    th:each="leave,iterator:${leaveHistory.content}">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                        th:text="${leave.getStaff().getFirstName()} + ' ' + ${leave.getStaff().getLastName()}">
+                        name
+                    </th>
+                    <td class="px-6 py-4" th:text="${leave.getStaff().getId()}">
+                        id
+                    </td>
+                    <td class="px-6 py-4" th:text="${leave.getLeaveType().getLeaveType()}"
+                        th:classappend="${leave.leaveType.leaveType} == 'annual' ? 'annual-leave' : (${leave.leaveType.leaveType} == 'medical' ? 'medical-leave' : 'compensation-leave')">
+                        category
+                    </td>
+                    <td class="px-6 py-4" th:text="${leave.getStartDate()}">
+                        start date
+                    </td>
+                    <td class="px-6 py-4" th:text="${leave.getEndDate()}">
+                        end date
+                    </td>
+                    <td class="px-6 py-4" th:text="${leaveHistoryDurations[iterator.index].doubleValue()}">
+                        leave duration
+                    </td>
+                    <td th:classappend="${leave.getStatus().toString()} == 'approved'? 'approved' : 'rejected'" class="px-6 py-4" th:text="${leave.getStatus()}">
+                        leave status
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div style="justify-content: center;align-items: center;display: flex">
+                <nav aria-label="Page navigation example" style="margin-top: 2%;margin-bottom: 2%">
+                    <ul class="inline-flex -space-x-px text-sm">
+                        <li th:classappend="${currentPage==0}?'disabled'" >
+                            <a th:if="${currentPage > 0}" th:href="@{|/leave/history/subordinates?page=${currentPage - 1}&size=${leaveHistory.size}|}" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
+                            <a th:if="${currentPage == 0}" class="flex items-center justify-center px-3 h-8 ms-0 leading-tight text-gray-500 bg-white border border-e-0 border-gray-300 rounded-s-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Previous</a>
+                        </li>
+                        <li th:each="pageNum:${pageNumbers}">
+                            <a  th:href="@{|/leave/history/subordinates?page=${pageNum - 1}&size=${leaveHistory.size}|}"
+                                th:text="${pageNum}"
+                                th:class="${currentPage+1==pageNum} ? 'flex items-center justify-center px-3 h-8 text-blue-600 border border-gray-300 bg-blue-50 hover:bg-blue-100 hover:text-blue-700 dark:border-gray-700 dark:bg-gray-700 dark:text-white':'flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white'"
+                            >3</a>
+                        </li>
+                        <li th:classappend="${currentPage == totalPages - 1} ? 'disabled'">
+                            <a th:if="${currentPage < totalPages - 1}" th:href="@{|/leave/history/subordinates?page=${currentPage + 1}&size=${leaveHistory.size}|}" href="#" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
+                            <a th:if="${currentPage == totalPages - 1}" class="flex items-center justify-center px-3 h-8 leading-tight text-gray-500 bg-white border border-gray-300 rounded-e-lg hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">Next</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

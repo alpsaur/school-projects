@@ -1,0 +1,52 @@
+
+.event-small-card {
+    width: 80%;
+    height: auto;
+    background: white;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    backdrop-filter: blur(10px);
+    transition: 0.5s ease-in-out;
+    padding-bottom: 0.85rem;
+    padding-top: 0.85rem;
+}
+
+.event-small-card:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+}
+
+.img {
+    width: 20%;
+    aspect-ratio: 1/1;
+    margin-left: 10px;
+    border-radius: 10px;
+}
+
+
+.textBox {
+    width: calc(100% - 90px);
+    margin-left: 10px;
+    color: black;
+}
+
+.textContent {
+    display: flex;
+    justify-content: space-between;
+}
+
+.span {
+    font-size: 10px;
+}
+
+.event-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+.p {
+    font-size: 1rem;
+}
+

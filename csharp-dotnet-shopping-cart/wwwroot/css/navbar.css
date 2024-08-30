@@ -1,0 +1,18 @@
+﻿.navbar {
+    display: flex;
+    align-items: center; /* Aligns all items in the navbar vertically */
+    padding: 10px 15px; /* Adds padding for better spacing */
+}
+
+.navbar-brand, .navbar-text {
+    font-size: 24px; /* Font size of the larger text */
+    line-height: 32px; /* Ensuring that larger text also aligns well vertically */
+}
+
+.nav-link {
+    font-size: 18px; /* Slightly smaller font size */
+    line-height: 24px; /* Line-height to align text vertically */
+    padding: 4px 8px; /* Adjust padding for better vertical alignment */
+    display: flex;
+    align-items: center; /* Flexbox center alignment */
+}

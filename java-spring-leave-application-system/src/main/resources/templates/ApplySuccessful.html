@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/fragments/layouts/base_layout}">
+<head>
+    <title>Successful Page</title>
+    <link rel="stylesheet" href="/css/Success.css">
+</head>
+<body>
+<section layout:fragment="content">
+    <div class="content">
+        <div class="notifications-container">
+            <div class="success">
+                <div class="flex">
+                    <div class="flex-shrink-0">
+                        <svg aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="succes-svg">
+                            <path clip-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" fill-rule="evenodd"></path>
+                        </svg>
+                    </div>
+                    <div class="success-prompt-wrap">
+                        <p class="success-prompt-heading">Successfully!</p>
+                        <div class="success-prompt-prompt">
+                            <p>
+                                Your manager will check your application. Please be sure to check your application status regularly in your application history!
+                            </p>
+                        </div>
+                        <div class="success-button-container">
+                            <button  class="success-button-main" type="button" onclick="window.location.href='/'">
+                                back to home
+                            </button>
+                            <button class="success-button-main" type="button" onclick="window.location.href='/leave/history/personal'">
+                                view application history
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+</section>
+</body>
+</html>

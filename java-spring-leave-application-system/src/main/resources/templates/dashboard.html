@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/fragments/layouts/base_layout}">
+<head>
+    <title th:text="'Dashboard'">Dashboard</title>
+</head>
+<body>
+<section layout:fragment="content">
+    <div class="py-12">
+        <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-wrap -mx-4">
+                <!-- Annual Leave -->
+                <div class="w-full sm:w-1/2 lg:w-1/3 px-4 mb-8">
+                    <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col h-full">
+                        <h2 class="text-2xl font-semibold text-gray-800">Annual Leave</h2>
+                        <div class="mt-4 flex-grow">
+                            <span class="text-5xl font-bold text-gray-900" th:text="${annualLeaveTotal}"></span>
+                            <span class="text-gray-600">days</span>
+                        </div>
+                        <ul class="mt-6 space-y-2 flex-grow">
+                            <li class="flex items-center">
+                                <svg class="h-6 w-6 text-green-500 mr-2" fill="currentColor" viewBox="0 0 24 24"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="12" r="4"/>
+                                </svg>
+                                Carry-Forward:&nbsp;<span th:text="${annualLeave.getForwardBalance()} + ' days'"></span>
+                            </li>
+                            <li class="flex items-center">
+                                <svg class="h-6 w-6 text-green-500 mr-2" fill="currentColor" viewBox="0 0 24 24"
+                                     xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="12" cy="12" r="4"/>
+                                </svg>
+                                Current Balance:&nbsp;<span
+                                    th:text="${annualLeave.getCurrentBalance()} + ' days'"></span>
+                            </li>
+                        </ul>
+                        <div class="mt-8">
+                            <a href="/leave/apply"
+                               class="block w-full bg-indigo-500 hover:bg-indigo-400 text-white font-semibold text-center py-2 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">Apply</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Medical Leave-->
+                <div class="w-full sm:w-1/2 lg:w-1/3 px-4 mb-8">
+                    <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col h-full">
+                        <h2 class="text-2xl font-semibold text-gray-800">Medical Leave</h2>
+                        <div class="mt-4 flex-grow">
+                            <span class="text-5xl font-bold text-gray-900"
+                                  th:text="${medicalLeave.getCurrentBalance()}"></span>
+                            <span class="text-gray-600">days</span>
+                        </div>
+                        <div class="mt-8">
+                            <a href="/leave/apply"
+                               class="block w-full bg-indigo-500 hover:bg-indigo-400 text-white font-semibold text-center py-2 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">Apply</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Compensation Leave -->
+                <div class="w-full sm:w-1/2 lg:w-1/3 px-4 mb-8">
+                    <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col h-full">
+                        <h2 class="text-2xl font-semibold text-gray-800">Compensation Leave</h2>
+                        <div class="mt-4 flex-grow">
+                            <span class="text-5xl font-bold text-gray-900"
+                                  th:text="${compensationLeave.getCurrentBalance()}"></span>
+                            <span class="text-gray-600">days</span>
+                        </div>
+                        <div class="mt-8">
+                            <a href="/leave/apply"
+                               class="block w-full bg-indigo-500 hover:bg-indigo-400 text-white font-semibold text-center py-2 rounded-lg transition duration-300 ease-in-out transform hover:scale-105">Apply</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="relative">
+        <div class="absolute left-1/2 transform -translate-x-1/2 mt-5 inline-flex justify-center rounded-md shadow-sm" role="group" th:if="${session?.usertype == 'manager'}">
+            <a href="/leave/process"
+               class="btn-primary px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">
+                View Leave Application For Approval
+            </a>
+        </div>
+    </div>
+
+    <div th:replace="~{fragments/footer :: footer}"></div>
+</section>
+
+</body>
+</html>

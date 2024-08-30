@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <Button
+        android:id="@+id/group_joined"
+        android:text=""
+        android:textColor="@color/darkblue"
+        android:textAllCaps="false"
+        android:layout_width="130dp"
+        android:layout_height="55dp"
+        android:layout_marginHorizontal="6dp"
+        android:layout_marginVertical="5dp"
+        android:textSize="18sp"
+        android:background="@drawable/category_ripple"/>
+</LinearLayout>

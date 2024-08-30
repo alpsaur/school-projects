@@ -1,0 +1,374 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|c:\\users\\user\\desktop\\dotnet_shopping - beta-v2.3.1\\controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|solutionrelative:controllers\\cartcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|c:\\users\\user\\desktop\\dotnet_shopping - beta-v2.3.1\\data\\cartdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|solutionrelative:data\\cartdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|c:\\users\\user\\desktop\\dotnet_shopping - beta-v2.3.1\\wwwroot\\js\\checkforstock.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}|",
+      "RelativeMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|solutionrelative:wwwroot\\js\\checkforstock.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|c:\\users\\user\\desktop\\dotnet_shopping - beta-v2.3.1\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|solutionrelative:views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|c:\\users\\user\\desktop\\dotnet_shopping - beta-v2.3.1\\views\\gallery\\gallery.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|solutionrelative:views\\gallery\\gallery.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|c:\\users\\user\\desktop\\dotnet_shopping - beta-v2.3.1\\views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|solutionrelative:views\\cart\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|c:\\users\\user\\desktop\\dotnet_shopping - beta-v2.3.1\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|solutionrelative:views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|c:\\users\\user\\desktop\\dotnet_shopping - beta-v2.3.1\\models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|solutionrelative:models\\cartitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|c:\\users\\user\\desktop\\dotnet_shopping - beta-v2.3.1\\data\\constants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|solutionrelative:data\\constants.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|c:\\users\\user\\desktop\\dotnet_shopping - beta-v2.3.1\\data\\accountdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|solutionrelative:data\\accountdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|c:\\users\\user\\desktop\\dotnet_shopping - beta-v2.3.1\\controllers\\gallerycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|solutionrelative:controllers\\gallerycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|c:\\users\\user\\desktop\\dotnet_shopping - beta-v2.3.1\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|solutionrelative:controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|c:\\users\\user\\desktop\\dotnet_shopping - beta-v2.3.1\\wwwroot\\js\\updatecart.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|solutionrelative:wwwroot\\js\\updatecart.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|c:\\users\\user\\desktop\\dotnet_shopping - beta-v2.3.1\\wwwroot\\js\\purchase.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|solutionrelative:wwwroot\\js\\purchase.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|c:\\users\\user\\desktop\\dotnet_shopping - beta-v2.3.1\\wwwroot\\css\\purchase.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|solutionrelative:wwwroot\\css\\purchase.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|c:\\users\\user\\desktop\\dotnet_shopping - beta-v2.3.1\\wwwroot\\css\\login.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|solutionrelative:wwwroot\\css\\login.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|c:\\users\\user\\desktop\\dotnet_shopping - beta-v2.3.1\\wwwroot\\css\\gallery.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|solutionrelative:wwwroot\\css\\gallery.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|c:\\users\\user\\desktop\\dotnet_shopping - beta-v2.3.1\\wwwroot\\css\\cart.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|solutionrelative:wwwroot\\css\\cart.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|c:\\users\\user\\desktop\\dotnet_shopping - beta-v2.3.1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|c:\\users\\user\\desktop\\dotnet_shopping - beta-v2.3.1\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|solutionrelative:models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|c:\\users\\user\\desktop\\dotnet_shopping - beta-v2.3.1\\models\\purchasedproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|solutionrelative:models\\purchasedproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|c:\\users\\user\\desktop\\dotnet_shopping - beta-v2.3.1\\models\\productquantity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0ED38DE5-DA8A-4608-BA95-9FCC54C46B77}|DOTNET_Shopping.csproj|solutionrelative:models\\productquantity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 92,
+          "SelectedChildIndex": 10,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "purchase.css",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\wwwroot\\css\\purchase.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\purchase.css",
+              "ToolTip": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\wwwroot\\css\\purchase.css",
+              "RelativeToolTip": "wwwroot\\css\\purchase.css",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAABYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-04-20T14:20:57.371Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "cart.css",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\wwwroot\\css\\cart.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\cart.css",
+              "ToolTip": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\wwwroot\\css\\cart.css",
+              "RelativeToolTip": "wwwroot\\css\\cart.css",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAADgAAAASAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-04-20T14:19:21.555Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "gallery.css",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\wwwroot\\css\\gallery.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\gallery.css",
+              "ToolTip": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\wwwroot\\css\\gallery.css",
+              "RelativeToolTip": "wwwroot\\css\\gallery.css",
+              "ViewState": "AQIAABgAAAAAAAAAAAAAABUAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-04-18T04:33:08.423Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Gallery.cshtml",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\Views\\Gallery\\Gallery.cshtml",
+              "RelativeDocumentMoniker": "Views\\Gallery\\Gallery.cshtml",
+              "ToolTip": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\Views\\Gallery\\Gallery.cshtml",
+              "RelativeToolTip": "Views\\Gallery\\Gallery.cshtml",
+              "ViewState": "AQIAAF0AAAAAAAAAAAAAAF4AAAA+AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-18T04:11:49.855Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "login.css",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\wwwroot\\css\\login.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\login.css",
+              "ToolTip": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\wwwroot\\css\\login.css",
+              "RelativeToolTip": "wwwroot\\css\\login.css",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAACAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-04-18T03:38:55.849Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAACAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-18T03:32:17.11Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "Views\\Account\\Login.cshtml",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABIAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-18T03:28:23.083Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\Views\\Cart\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Cart\\Index.cshtml",
+              "ToolTip": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\Views\\Cart\\Index.cshtml",
+              "RelativeToolTip": "Views\\Cart\\Index.cshtml",
+              "ViewState": "AQIAADYAAAAAAAAAAAAAACsAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-04-18T01:06:59.843Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Constants.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\Data\\Constants.cs",
+              "RelativeDocumentMoniker": "Data\\Constants.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\Data\\Constants.cs",
+              "RelativeToolTip": "Data\\Constants.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAABvAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-18T01:06:59.703Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AccountController.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\Controllers\\AccountController.cs",
+              "RelativeDocumentMoniker": "Controllers\\AccountController.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\Controllers\\AccountController.cs",
+              "RelativeToolTip": "Controllers\\AccountController.cs",
+              "ViewState": "AQIAADwAAAAAAAAAAAAYwA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-18T01:06:59.837Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CartController.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\Controllers\\CartController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CartController.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\Controllers\\CartController.cs",
+              "RelativeToolTip": "Controllers\\CartController.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAQwCsAAAAQAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-18T01:06:59.84Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "checkforstock.js",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\wwwroot\\js\\checkforstock.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\checkforstock.js",
+              "ToolTip": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\wwwroot\\js\\checkforstock.js",
+              "RelativeToolTip": "wwwroot\\js\\checkforstock.js",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-04-18T01:06:59.844Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "updateCart.js",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\wwwroot\\js\\updateCart.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\updateCart.js",
+              "ToolTip": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\wwwroot\\js\\updateCart.js",
+              "RelativeToolTip": "wwwroot\\js\\updateCart.js",
+              "ViewState": "AQIAAE4AAAAAAAAAAAAIwD8AAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-04-18T01:26:13.364Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\Program.cs",
+              "RelativeDocumentMoniker": "Program.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\Program.cs",
+              "RelativeToolTip": "Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-18T01:06:59.85Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CartDAO.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\Data\\CartDAO.cs",
+              "RelativeDocumentMoniker": "Data\\CartDAO.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\Data\\CartDAO.cs",
+              "RelativeToolTip": "Data\\CartDAO.cs",
+              "ViewState": "AQIAAJgAAAAAAAAAAAAgwAoAAAAWAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-18T01:06:59.839Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "purchase.js",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\wwwroot\\js\\purchase.js",
+              "RelativeDocumentMoniker": "wwwroot\\js\\purchase.js",
+              "ToolTip": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\wwwroot\\js\\purchase.js",
+              "RelativeToolTip": "wwwroot\\js\\purchase.js",
+              "ViewState": "AQIAABIAAAAAAAAAAAAYwAIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-04-18T01:25:56.606Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AccountDAO.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\Data\\AccountDAO.cs",
+              "RelativeDocumentMoniker": "Data\\AccountDAO.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\Data\\AccountDAO.cs",
+              "RelativeToolTip": "Data\\AccountDAO.cs",
+              "ViewState": "AQIAABAAAAAAAAAAAAAQwB8AAAAeAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-18T01:06:59.846Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CartItem.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\Models\\CartItem.cs",
+              "RelativeDocumentMoniker": "Models\\CartItem.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\Models\\CartItem.cs",
+              "RelativeToolTip": "Models\\CartItem.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-18T01:06:59.848Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "Models\\Product.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\Models\\Product.cs",
+              "RelativeToolTip": "Models\\Product.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-18T01:06:59.849Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "GalleryController.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\Controllers\\GalleryController.cs",
+              "RelativeDocumentMoniker": "Controllers\\GalleryController.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\Controllers\\GalleryController.cs",
+              "RelativeToolTip": "Controllers\\GalleryController.cs",
+              "ViewState": "AQIAAGEAAAAAAAAAAAAkwBYAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-18T01:06:59.834Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "ProductQuantity.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\Models\\ProductQuantity.cs",
+              "RelativeDocumentMoniker": "Models\\ProductQuantity.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\Models\\ProductQuantity.cs",
+              "RelativeToolTip": "Models\\ProductQuantity.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-18T01:06:59.852Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "PurchasedProduct.cs",
+              "DocumentMoniker": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\Models\\PurchasedProduct.cs",
+              "RelativeDocumentMoniker": "Models\\PurchasedProduct.cs",
+              "ToolTip": "C:\\Users\\user\\Desktop\\DOTNET_Shopping - Beta-V2.3.1\\Models\\PurchasedProduct.cs",
+              "RelativeToolTip": "Models\\PurchasedProduct.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-04-18T01:06:59.854Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+﻿@using System.Diagnostics;
+@section Scripts
+{
+    <script src="~/js/checkforstock.js"></script>
+    <script src="~/js/updateCart.js"></script>
+
+}
+
+@{
+    ViewData["title"] = "View Cart";
+    <link rel="stylesheet" href="~/css/navbar.css" />
+    <link rel="stylesheet" href="~/css/cart.css" />
+
+    var cartItems = ViewBag.CartItems;
+
+
+
+}
+
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <h4 class="navbar-brand"><span class="fw-bold text-secondary">View Cart</span></h4>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Gallery" asp-action="Gallery">Continue Shopping</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">|</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Cart" asp-action="CheckOut" onclick="checkforstock(event)">Checkout</a>
+                </li>
+            </ul>
+            <span class="navbar-text">
+                <h4 class="fw-bold text-secondary">Total: <span class="fw-bold text-secondary" id="totalPrice">$</span></h4>
+            </span>
+        </div>
+    </div>
+</nav>
+
+
+<div id="notenough" style="display: flex; justify-content: center"> </div>
+
+@if (cartItems.Count == 0)
+{
+    <p> Your Cart is Empty</p>
+}
+else
+{
+    @foreach (var cartItem in cartItems)
+    {
+        if (cartItem.Product != null)
+        {
+            <div class="flex-container" style="display: flex; align-items: center;" id="flex-@cartItem.ProductID">
+
+                <div class="flex-child product" id="product">
+
+                    <img src="~/images/@cartItem.Product.ImageName" class="card-img-top" alt="@cartItem.Product.ProductName" />
+                    <h5 class="card-title">@cartItem.Product.ProductName</h5>
+                    <p class="card-text">@cartItem.Product.Description</p>
+                </div>
+
+                <div class="flex-child price" id="price">
+                    <div class="price">Price: $@cartItem.Product.UnitPrice</div>
+                    <div class="quantity">
+                        <label>Quantity:</label>
+                        <input type="number" name="quantity" min="0" max="99" step="1" value="@cartItem.Quantity" class="quantity-input" data-product-id="@cartItem.ProductID" data-unit-price="@cartItem.Product.UnitPrice">
+                        <div class="modal" tabindex="-1" role="dialog" id="modal-@cartItem.ProductID">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <p>Do you want to remove the product?</p>
+                                    <div style="display: flex; justify-content: center;">
+                                        <button type="button" class="btn btn-light" style="margin-right: 10px;" id="btn-yes">Yes</button>
+                                        <button type="button" class="btn btn-light" id="btn-no">No</button>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                    </div>
+                </div>
+           </div>
+        }
+        else
+        {
+            <div class="alert alert-warning" role="alert">
+                A product in your cart could not be displayed.
+            </div>
+        }
+    }
+
+}

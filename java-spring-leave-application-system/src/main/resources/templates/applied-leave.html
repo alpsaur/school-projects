@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/fragments/layouts/base_layout}">
+<head>
+    <title>Applied Leave Details</title>
+    <style>
+        .container {
+            display: flex;
+        }
+
+        .left {
+            width: 50%;
+            padding: 10px;
+            margin-right: 30px;
+            display: flex;
+            flex-direction: column; /* Ensure items stack vertically */
+        }
+
+        .right {
+            width: 50%;
+            padding: 10px;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 10px;
+            justify-content: center; /* Center buttons horizontally */
+            width: 100%; /* Make sure buttons are centered within the full width of the left container */
+        }
+        .rejected {
+            color: rgb(255, 0, 27);
+        }
+
+        .approved {
+            color: rgb(15, 166, 87);
+        }
+    </style>
+</head>
+<body>
+<section layout:fragment="content">
+    <h1 style="text-align: center; font-weight: bold; font-size: x-large"
+        class="text-4xl font-extrabold dark:text-white">Pending Leave Applications</h1>
+
+    <div class="content">
+        <div class="container">
+            <div class="left">
+                <!--Applied Leave Details -->
+                <form>
+                    <div class="grid gap-6 mb-6 md:grid-cols-2" style="text-align: left">
+                        <div>
+                            <label for="emp_id" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                   style="text-align: left">Employee
+                                ID</label>
+                            <p id="emp_id"
+                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                               th:text="${leave.getStaff().getId()}">Employee Id</p>
+                        </div>
+                        <div>
+                            <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                   style="text-align: left">Employee
+                                Name</label>
+                            <p id="name"
+                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                               th:text="${leave.getStaff().getFirstName()} + ' ' + ${leave.getStaff().getLastName()}">
+                                Employee Name</p>
+                        </div>
+                        <div>
+                            <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                   style="text-align: left">Phone
+                                number</label>
+                            <p id="phone"
+                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                               th:text="${leave.getStaff().getPhoneNumber()}">Phone number</p>
+                        </div>
+                        <div>
+                            <label for="staff_email"
+                                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                   style="text-align: left">Email</label>
+                            <p id="staff_email"
+                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                               th:text="${leave.getStaff().getEmail()}"> Email </p>
+                        </div>
+                        <div>
+                            <label for="leave_type"
+                                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                   style="text-align: left">Leave
+                                Type</label>
+                            <p id="leave_type"
+                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                               th:text="${leave.getLeaveType().getLeaveType()}">Leave Type</p>
+                        </div>
+                        <div>
+                            <label for="duration" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                   style="text-align: left">Duration</label>
+                            <p id="duration"
+                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                               th:text="${leave.leaveType.leaveType == 'compensation' ? '0.5 days' : duration+' days'}"> duration </p>
+                        </div>
+                        <div>
+                            <label for="start_date"
+                                   class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                   style="text-align: left">Start
+                                Date</label>
+                            <p id="start_date"
+                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                               th:text="${leave.getStartDate()}">Start Date</p>
+                        </div>
+                        <div>
+                            <label for="end_date" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                   style="text-align: left">End
+                                Date</label>
+                            <p id="end_date"
+                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                               th:text="${leave.getEndDate()}"> End Date </p>
+                        </div>
+
+                        <div>
+                            <label for="reason" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                   style="text-align: left">Reason</label>
+                            <p id="reason"
+                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                               th:text="${leave.getReason()}">reason </p>
+                        </div>
+                        <div>
+                            <label for="work_dis" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                                   style="text-align: left">Work
+                                dissemination </label>
+                            <p id="work_dis"
+                               class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                               th:text="${leave.getWorkDissenmination()}"> word dissemination </p>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="button-container">
+                    <!--Reject Button with Modal -->
+                    <!-- Modal toggle -->
+                    <button data-modal-target="reject-modal" data-modal-toggle="reject-modal"
+                            class="block text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                            type="button">
+                        Reject
+                    </button>
+
+                    <!-- Main modal -->
+                    <div id="reject-modal" tabindex="-1" aria-hidden="true"
+                         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                        <div class="relative p-4 w-full max-w-md max-h-full">
+                            <!-- Modal content -->
+                            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                                <!-- Modal header -->
+                                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                                        Reason for Rejection
+                                    </h3>
+                                    <button type="button"
+                                            class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                            data-modal-hide="reject-modal">
+                                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                             fill="none" viewBox="0 0 14 14">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                  stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                                        </svg>
+                                        <span class="sr-only">Close modal</span>
+                                    </button>
+                                </div>
+                                <!-- Modal body -->
+                                <div class="p-4 md:p-5">
+                                    <form class="space-y-4" action="#" th:object="${leave}" th:action="@{/leave/reject}"
+                                          method="post">
+                                        <input  type="hidden" th:field="*{id}" th:value="*{id}" readonly>
+                                        <div>
+                                                <textarea name="comment" id="reject-comment" style="height:150px"
+                                                          class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                          required></textarea>
+                                            <br/>
+                                        </div>
+
+                                        <button type="submit" name="action" value="reject"
+                                                class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                            Confirm
+                                        </button>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--Approval Button with Modal -->
+                    <!-- Modal toggle -->
+                    <button data-modal-target="approval-modal" data-modal-toggle="approval-modal"
+                            class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                            type="button">
+                        Approve
+                    </button>
+
+                    <!-- Main modal -->
+                    <div id="approval-modal" tabindex="-1" aria-hidden="true"
+                         class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                        <div class="relative p-4 w-full max-w-md max-h-full">
+                            <!-- Modal content -->
+                            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                                <!-- Modal header -->
+                                <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
+                                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                                        Comments
+                                    </h3>
+                                    <button type="button"
+                                            class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                                            data-modal-hide="approval-modal">
+                                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                             fill="none" viewBox="0 0 14 14">
+                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                                  stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                                        </svg>
+                                        <span class="sr-only">Close modal</span>
+                                    </button>
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="p-4 md:p-5">
+                                    <form class="space-y-4" action="#" th:object="${leave}"
+                                          th:action="@{/leave/approve}"
+                                          method="post">
+                                        <input type="hidden" th:field="*{id}" th:value="*{id}" readonly>
+
+                                        <div>
+                                                <textarea name="comment" id="approve-comment" style="height:150px"
+                                                          class="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-base focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                                ></textarea>
+                                            <br/>
+                                        </div>
+
+                                        <button type="submit" name="action" value="approve"
+                                                class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                            Confirm
+                                        </button>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <label class="block mb-2 text-lg font-medium text-gray-900 dark:text-white">Overlapped
+                    Leave
+                    Applications</label>
+                <p th:if="${overlappedLeaveRecords.isEmpty()}"> No Other Leave Applications During This
+                    Period</p>
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400 border border-gray-200 dark:border-gray-700 mx-auto mt-4"
+                       th:if="${!overlappedLeaveRecords.isEmpty()}">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3 text-center">
+                            Employee
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-center">
+                            Leave
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-center">
+                            Start
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-center">
+                            End
+                        </th>
+                        <th scope="col" class="px-6 py-3 text-center">
+                            Status
+                        </th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="leave: ${overlappedLeaveRecords}">
+                        <td class="px-6 py-3 text-center" style="white-space: nowrap;"
+                            th:text="${leave.getStaff().getFirstName() } + ' ' + ${leave.getStaff().getLastName()}"></td>
+                        <td class="px-6 py-3 text-center" style="white-space: nowrap;"
+                            th:text="${leave.getLeaveType().getLeaveType()}"></td>
+                        <td class="px-6 py-3 text-center" style="white-space: nowrap;"
+                            th:text="${leave.getStartDate()}"></td>
+                        <td class="px-6 py-3 text-center" style="white-space: nowrap;"
+                            th:text="${leave.getEndDate()}"></td>
+                        <td class="px-6 py-3 text-center" style="white-space: nowrap;" th:classappend="${leave.getStatus().toString()} == 'approved'? 'approved' : 'rejected'"
+                            th:text="${leave.getStatus()}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

@@ -1,0 +1,53 @@
+﻿
+
+
+
+/* Search bar styling */
+#searchBar {
+    width: 100%; /* Ensures search bar spans the full width of the screen */
+    margin: 20px 0; /* Adds margin above and below the search bar */
+    display: flex;
+    justify-content: center; /* Centers the search input within the form */
+}
+ #searchBar input[type="text"] {
+    width: 80%; /* Responsive width of the search input */
+    padding: 10px;
+    border: 1px solid #ccc; /* Subtle border for the input */
+    border-radius: 4px; /* Rounded corners for the input field */
+ }
+
+
+table {
+    margin: 10px auto; /* Centers the table horizontally */
+    width: 80%; /* Sets the width of the table to 60% of its containing element */
+}
+  
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Shadow for a card-like appearance */
+    background-color: #fff; /* White background for contrast */
+    border-radius: 8px; /* Rounded corners for a smoother look */
+    overflow: hidden; /* Hides anything that overflows the card */
+    height: 400px; /* Fixed height for consistency */
+    width:280px;
+    margin:18px;
+    padding: 15px; /* Padding inside each card */
+    box-sizing: border-box; /* Padding and borders are included in width/height */
+}
+
+    .product-card img {
+        width: 100%; /* Image fills the width of the card */
+        height: auto; /* Height adjusts to maintain aspect ratio */
+        object-fit: cover; /* Ensures the image covers the allotted area without distortion */
+    }
+
+    .product-card p {
+        margin: 5px 0; /* Margins for paragraph spacing */
+    }
+
+    .product-card form {
+        margin-top: auto; /* Pushes form to the bottom of the flex container */
+        margin:auto;
+    }

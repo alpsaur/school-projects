@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/fragments/layouts/base_layout}">
+<head>
+    <title>    personal compensation records</title>
+    <style>
+        .annual-leave {
+            color: rgb(237, 186, 0);
+        }
+
+        .medical-leave {
+            color: rgb(130, 62, 250);
+        }
+
+        .compensation-leave {
+            color: rgb(255, 89, 107);
+        }
+
+        .rejected {
+            color: rgb(255, 0, 27);
+        }
+
+        .approved {
+            color: rgb(15, 166, 87);
+        }
+    </style>
+</head>
+<body>
+<section layout:fragment="content">
+    <div class="flex justify-end mt-5 mr-20 mb-5">
+        <div class="inline-flex justify-center rounded-md shadow-sm" role="group">
+            <a href="/compensation/process"  th:if="${session?.usertype == 'manager'}"
+               class="btn-primary px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">
+                Process Compensation Requests
+            </a>
+            <a href="/compensation/apply"
+               class="btn-primary px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">
+                Apply Compensation Requests
+            </a>
+            <a href="/compensation/personal"
+               class="btn btn-primary px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-r-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">
+                View Personal Compensation Claims
+            </a>
+            <a href="/compensation/subordinates"   th:if="${session?.usertype == 'manager'}"
+               class="btn btn-primary px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-r-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">
+                View Subordinates Compensation Claims
+            </a>
+        </div>
+    </div>
+
+    <h1 style="text-align: center; font-weight: bold; font-size: x-large"
+        class="text-4xl font-extrabold dark:text-white">Personal Compensation Record</h1>
+
+    <div class="content">
+        <p th:if="${compensationHistory.isEmpty()}">No Personal Compensation History</p>
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg" th:if="${!compensationHistory.isEmpty()}">
+            <table class="w-full text-sm text-left text-gray-500">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        Overtime Date
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Overtime Hours
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Reason
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Leave Granted
+                    </th>
+                    <th scope="col" class="px-6 py-3" style="text-align: center">
+                        Status
+                    </th>
+                    <th scope="col" class="px-6 py-3" style="text-align: center">
+                        Actions
+                    </th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="bg-white border-b hover:bg-gray-50"
+                    th:each="compensationRecord, iterator : ${compensationHistory}">
+                    <td th:text="${compensationRecord.getOvertimeDate()}"></td>
+                    <td th:text="${compensationRecord.getOvertimeHours()}"></td>
+                    <td th:text="${compensationRecord.getReason()}"></td>
+                    <td th:text="${numberOfGrantedLeaves[iterator.index]} + 'day(s)'"></td>
+                    <td th:text="${compensationRecord.getStatus()}"
+                        th:classappend="${compensationRecord.getStatus().toString()} == 'approved'?'approved':'rejected'"></td>
+                    <td class="px-6 py-4">
+                        <div th:if="${compensationRecord.getStatus().toString() != 'approved' and compensationRecord.getStatus().toString() != 'rejected'}">
+                            <a th:href="@{'/compensation/update?id=' + ${compensationRecord.id}}"
+                               class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Update</a>
+                            <form th:action="@{/compensation/delete}" method="post" style="display:inline;">
+                                <input type="hidden" name="compensationId" th:value="${compensationRecord.getId()}"/>
+                                <input type="hidden" name="staffId" th:value="${compensationRecord.staff.id}"/>
+                                <button type="submit"
+                                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Delete
+                                </button>
+                            </form>
+                        </div>
+                        <form th:if="${compensationRecord.getStatus().toString() == 'approved'}"
+                              th:action="@{/compensation/cancel}"
+                              method="post" style="display:inline;">
+                            <input type="hidden" name="compensationId" th:value="${compensationRecord.getId()}"/>
+                            <input type="hidden" name="staffId" th:value="${compensationRecord.staff.id}"/>
+                            <button type="submit" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">
+                                Cancel
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+
+            </table>
+        </div>
+        <br/>
+        <div style="text-align: center; margin-top: 20px;">
+            <form th:action="@{/compensation/apply}" method="get">
+                <input type="hidden" name="staffId"/>
+                <button type="submit" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Apply New
+                    Compensation
+                    Record
+                </button>
+            </form>
+        </div>
+    </div>
+</section>
+</body>
+</html>

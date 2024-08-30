@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title layout:title-pattern="$CONTENT_TITLE"></title>
+    <!-- Tailwind CSS CDN-->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body>
+<div th:if="${session?.usertype !='admin'}" th:insert="~{fragments/emp_navbar :: navbar}"></div>
+<div th:if="${session?.usertype == 'admin'}" th:insert="~{fragments/admin_navbar :: navbar}"></div>
+
+<div th:replace="~{fragments/header:: header}"></div>
+<main>
+    <section layout:fragment="content">
+        <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+            <!-- Default content can go here -->
+        </div>
+
+    </section>
+</main>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+</body>
+</html>

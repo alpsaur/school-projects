@@ -1,0 +1,85 @@
+﻿@using System.Diagnostics;
+@section Scripts
+{
+    <script src="~/js/purchase.js"></script>
+}
+
+@{
+    ViewData["title"] = "My Purchase";
+    <link rel="stylesheet" href="~/css/purchase.css" />
+    <link rel="stylesheet" href="~/css/navbar.css" />
+    List<PurchasedProduct> purchasedProducts = ViewBag.PurchasedProducts;
+    Dictionary<int, List<string>> activationCodes = ViewBag.dict;
+    var productIdSet = new HashSet<int>();
+}
+
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+        <h4 class="navbar-brand"><span class="fw-bold text-secondary">My Purchases</span></h4>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Gallery" asp-action="Gallery">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link">|</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-controller="Account" asp-action="Logout">Logout</a>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+</nav>
+
+
+
+
+@foreach (var kvp in activationCodes)
+{
+    foreach (var pd in purchasedProducts)
+    {
+        if (kvp.Key == pd.ProductID && !productIdSet.Contains(pd.ProductID))
+        {
+            <div class="flex-container">
+
+                <div class="flex-child product" id="product">
+
+                    <img src="~/images/@pd.ProductImage" class="card-img-top" alt="@pd.ProductName" />
+                    <h5 class="card-title">@pd.ProductName</h5>
+                    <p class="card-text">@pd.ProductDescription</p>
+                    <button style="width:280px">Download</button>
+                </div>
+
+                <div class="flex-child purchase" id="purchase">
+
+                    <div class="purchase-date">Purchased On: <span class="date">@pd.PurchaseDate</span></div>
+                    <p>Quantity: @kvp.Value.Count </p>
+                    <div class="label-value">
+                        <p class="label">Activation Code:</p>
+                        @if (kvp.Value.Count == 1)
+                        {
+                            <p class="activation-codes"> @kvp.Value[0]</p>
+                        }
+                        else
+                        {
+                            <select class="activation-codes" id="actCodeBox">
+                                @foreach (var code in kvp.Value)
+                                {
+                                    <option value="@code">@code</option>
+                                }
+                            </select>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            productIdSet.Add(pd.ProductID);
+        }
+
+    }
+
+
+}

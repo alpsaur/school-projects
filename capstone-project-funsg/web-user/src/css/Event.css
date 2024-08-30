@@ -1,0 +1,73 @@
+.button-container {
+    position: relative;
+    float: right;
+    display: inline-block;
+}
+
+.hover-button {
+    display: inline-block; /* Keep it inline with other elements */
+}
+
+.selection-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0; /* Start with menu hidden */
+    visibility: hidden; /* Ensure menu is not visible initially */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    width: 200px;
+    height: auto;
+}
+
+.selection-menu a {
+    display: block;
+    padding: 10px;
+    color: #333;
+    text-decoration: none;
+}
+
+.selection-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+/* Show the menu when the button-container is hovered */
+.button-container:hover .selection-menu {
+    opacity: 1; /* Ensure menu is visible */
+    visibility: visible; /* Make the menu visible */
+}
+
+/* Keep the menu visible for a bit longer after the mouse leaves */
+.button-container:hover .selection-menu,
+.button-container .selection-menu.show {
+    opacity: 1; /* Keep menu visible during hover */
+    visibility: visible; /* Keep menu visible during hover */
+}
+
+/* Optional: Add a slight delay for hiding the menu */
+.button-container .selection-menu {
+    transition-delay: 0s; /* Immediate transition during hover */
+}
+
+.button-container:hover .selection-menu {
+    transition-delay: 0s; /* Immediate transition when hovering */
+}
+
+.button-container .selection-menu {
+    transition-delay: 0.3s; /* Delay hiding after hover */
+}
+
+.card-img-size {
+    aspect-ratio: 4 / 2.5; /* Replace with your desired aspect ratio */
+    object-fit: cover;
+}
+
+.card {
+    min-height: 40%;
+    max-height: 40%;
+}
+.card-body{
+    min-height:9rem
+}

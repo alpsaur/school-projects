@@ -1,0 +1,12 @@
+.Members-display{
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.Members-photo{
+    margin-right: 2rem;
+}
+.Members-display p {
+    margin: 0;
+    line-height: 1.5;
+}

@@ -1,0 +1,58 @@
+/* From Uiverse.io by aadium */
+.paste-button {
+    position: relative;
+    display: block;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.sort-button {
+    color: #212121;
+    background-color: white;
+    padding: 10px 15px;
+    font-size: 1.2rem;
+    border: none;
+    border-bottom: 2px solid #006B80;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    font-size: 1.1rem;
+    position: absolute;
+    z-index: 1;
+    min-width: 200px;
+    background-color: white;
+    border: 1px solid #cfcece;
+    border-radius: 0px 15px 15px 15px;
+}
+
+.dropdown-content a {
+    color: #050101;
+    padding: 8px 10px;
+    text-decoration: none;
+    display: block;
+    transition: 0.1s;
+}
+
+.dropdown-content a:hover {
+    background-color: #f1eeee;
+    color: #212121;
+}
+
+.dropdown-content a:focus {
+    background-color: #f1eeee;
+    color: #006B80;
+}
+
+.dropdown-content #top:hover {
+    border-radius: 0px 13px 0px 0px;
+}
+
+.dropdown-content #bottom:hover {
+    border-radius: 0px 0px 13px 13px;
+}
+
+
+.paste-button:hover .dropdown-content {
+    display: block;
+}

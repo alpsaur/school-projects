@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Memory Game</string>
+    <string name="start"> Start Game</string>
+    <string name="fetch">Fetch</string>
+    <string name="score">Highest Scores</string>
+    <string name="instruction">Game Instruction</string>
+    <string name="mode">Game Mode</string>
+
+    <string name="default_matches">0 of 6 matches</string>
+    <string name="initial_match_count">0 of 6 matches</string>
+    <string name="default_time">0.0</string>
+    <string name="scores_record">Highest Scores</string>
+
+</resources>

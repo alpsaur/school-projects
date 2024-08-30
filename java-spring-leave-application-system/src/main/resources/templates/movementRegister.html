@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/fragments/layouts/base_layout}">
+<head>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const radios = document.querySelectorAll('input[name="monthSelection"]');
+            radios.forEach(radio => {
+                radio.addEventListener('change', function () {
+                    document.getElementById('monthSelectionForm').submit();
+                });
+            });
+        });
+    </script>
+    <style>
+        .annual-leave {
+            color: rgb(237, 186, 0);
+        }
+
+        .medical-leave {
+            color: rgb(130, 62, 250);
+        }
+
+        .compensation-leave {
+            color: rgb(255, 89, 107);
+        }
+    </style>
+    <title>View movement</title>
+</head>
+<body>
+<section layout:fragment="content">
+    <h1 style="text-align: center; font-weight: bold; font-size: x-large"
+        class="text-4xl font-extrabold dark:text-white mt-5">Movement Register</h1>
+    <div class="content">
+
+        <button id="dropdownDelayButton" data-dropdown-toggle="dropdownDelay" data-dropdown-delay="500"
+                data-dropdown-trigger="hover"
+                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                type="button">
+            Choose Month
+            <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                 viewBox="0 0 10 6">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="m1 1 4 4 4-4"/>
+            </svg>
+        </button>
+
+        <div class="table-content">
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg flex justify-center">
+                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                    <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3">Staff Name</th>
+                        <th scope="col" class="px-6 py-3">Email</th>
+                        <th scope="col" class="px-6 py-3">Leave Type</th>
+                        <th scope="col" class="px-6 py-3">Start Date</th>
+                        <th scope="col" class="px-6 py-3">End Date</th>
+                        <th scope="col" class="px-6 py-3">work Dissemination</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                        th:each="leaveRecord:${leaveRecords}">
+                        <td class="px-6 py-4"
+                            th:text="${leaveRecord.staff.firstName+' '+leaveRecord.staff.lastName}"></td>
+                        <td class="px-6 py-4"
+                            th:text="${leaveRecord.staff.email}"></td>
+                        <td class="px-6 py-4" th:classappend="${leaveRecord.leaveType.leaveType} == 'annual' ? 'annual-leave' : (${leaveRecord.leaveType.leaveType} == 'medical' ? 'medical-leave' : 'compensation-leave')"
+                            th:text="${leaveRecord.leaveType.leaveType}"></td>
+                        <td class="px-6 py-4"
+                            th:text="${leaveRecord.startDate}"></td>
+                        <td class="px-6 py-4"
+                            th:text="${leaveRecord.endDate}"></td>
+                        <td class="px-6 py-4"
+                            th:text="${leaveRecord.workDissenmination}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Dropdown menu -->
+        <div id="dropdownDelay"
+             class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDelayButton">
+                <li>
+                    <a th:href="@{/leave/movementRegister(monthSelection='thisMonth')}"
+                       class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">This
+                        Month</a>
+                </li>
+                <li>
+                    <a th:href="@{/leave/movementRegister(monthSelection='lastMonth')}"
+                       class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Last
+                        Month</a>
+                </li>
+                <li>
+                    <a th:href="@{/leave/movementRegister(monthSelection='nextMonth')}"
+                       class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Next
+                        Month</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+</body>
+</html>

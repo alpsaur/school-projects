@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/fragments/layouts/base_layout}">
+<head>
+    <title>All Applied Leaves</title>
+    <style>
+        .annual-leave {
+            color: rgb(237, 186, 0);
+        }
+
+        .medical-leave {
+            color: rgb(130, 62, 250);
+        }
+
+        .compensation-leave {
+            color: rgb(255, 89, 107);
+        }
+    </style>
+</head>
+<body>
+
+<section layout:fragment="content">
+    <h1 style="text-align: center; font-weight: bold; font-size: x-large"
+        class="text-4xl font-extrabold dark:text-white">Pending Leave Applications</h1>
+    <div class="content">
+        <p th:if="${appliedLeaveRecords.isEmpty()}"> No Leave Application.</p>
+
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg" th:if="${!appliedLeaveRecords.isEmpty()}">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                <tr>
+                    <th scope="col" class="px-6 py-3">
+                        Employee Name
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Employee Id
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Leave Category
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        Start Date
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        End Date
+                    </th>
+                    <th scope="col" class="px-6 py-3">
+                        <span class="sr-only">View Details</span>
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+                    th:each="leave:${appliedLeaveRecords}">
+                    <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                        th:text="${leave.getStaff().getFirstName()} + ' ' + ${leave.getStaff().getLastName()}">
+                        name
+                    </th>
+                    <td class="px-6 py-4" th:text="${leave.getStaff().getId()}">
+                        id
+                    </td>
+                    <td th:classappend="${leave.leaveType.leaveType} == 'annual' ? 'annual-leave' : (${leave.leaveType.leaveType} == 'medical' ? 'medical-leave' : 'compensation-leave')"
+                        class="px-6 py-4" th:text="${leave.getLeaveType().getLeaveType()}">
+                        category
+                    </td>
+                    <td class="px-6 py-4" th:text="${leave.getStartDate()}">
+                        start date
+                    </td>
+                    <td class="px-6 py-4" th:text="${leave.getEndDate()}">
+                        end date
+                    </td>
+                    <td class="px-6 py-4 text-right">
+                        <a th:href="@{'/leave/process/' + ${leave.getId()}}"
+                           class="font-medium text-blue-600 dark:text-blue-500 hover:underline">View Details</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+</body>
+</html>

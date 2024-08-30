@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/fragments/layouts/base_layout}">
+
+<head>
+    <title>Compensation Form</title>
+    <link rel="stylesheet" href="/css/ErrorFormat.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .content-wrapper {
+            flex: 1 0 auto;
+        }
+        footer {
+            flex-shrink: 0;
+            text-align: center;
+            padding: 1em;
+            background-color: #f1f1f1;
+        }
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="content-wrapper">
+    <section layout:fragment="content">
+
+        <div class="flex justify-end mt-5 mr-20 mb-5">
+            <div class="inline-flex justify-center rounded-md shadow-sm" role="group">
+                <a href="/compensation/process"  th:if="${session?.usertype == 'manager'}"
+                   class="btn-primary px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">
+                    Process Compensation Requests
+                </a>
+                <a href="/compensation/apply"
+                   class="btn-primary px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">
+                    Apply Compensation Requests
+                </a>
+                <a href="/compensation/personal"
+                   class="btn btn-primary px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-r-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">
+                    View Personal Compensation Claims
+                </a>
+                <a href="/compensation/subordinates"   th:if="${session?.usertype == 'manager'}"
+                   class="btn btn-primary px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-r-lg hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-white dark:hover:bg-gray-700 dark:focus:ring-blue-500 dark:focus:text-white">
+                    View Subordinates Compensation Claims
+                </a>
+            </div>
+        </div>
+        <h1 style="text-align: center; font-weight: bold; font-size: x-large"
+            class="text-4xl font-extrabold dark:text-white">Apply Compensation Request</h1>
+        <div class="wrapper">
+            <form th:action="@{/compensation/apply}" th:object="${compensationRecord}" method="post" style="width: 100%; max-width: 800px;">
+                <div class="space-y-12" style="text-align: left">
+                    <div class="border-b border-gray-900/10 pb-12">
+                        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                            <input type="hidden" th:field="*{staff}" th:value="${session.user}" />
+                            <div class="sm:col-span-2 sm:col-start-1">
+                                <label for="overtimeDate" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Overtime Date:</label>
+                                <div class="mt-2">
+                                    <input type="date" id="overtimeDate" th:field="*{overtimeDate}" style="width: 100%;" class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    <div class="error" th:if="${#fields.hasErrors('overtimeDate')}" >
+                                        <div class="error__icon">
+                                            <svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m13 13h-2v-6h2zm0 4h-2v-2h2zm-1-15c-1.3132 0-2.61358.25866-3.82683.7612-1.21326.50255-2.31565 1.23915-3.24424 2.16773-1.87536 1.87537-2.92893 4.41891-2.92893 7.07107 0 2.6522 1.05357 5.1957 2.92893 7.0711.92859.9286 2.03098 1.6651 3.24424 2.1677 1.21325.5025 2.51363.7612 3.82683.7612 2.6522 0 5.1957-1.0536 7.0711-2.9289 1.8753-1.8754 2.9289-4.4189 2.9289-7.0711 0-1.3132-.2587-2.61358-.7612-3.82683-.5026-1.21326-1.2391-2.31565-2.1677-3.24424-.9286-.92858-2.031-1.66518-3.2443-2.16773-1.2132-.50254-2.5136-.7612-3.8268-.7612z" fill="#393a37"></path></svg>
+                                        </div>
+                                        <div><span th:errors="*{overtimeDate}" class="error__title"></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sm:col-span-2 sm:col-start-1">
+                                <label for="overtimeHour" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Overtime Hour:</label>
+                                <div class="mt-2">
+                                    <input type="number" id="overtimeHour" th:field="*{overtimeHours}"  class="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    <div class="error" th:if="${#fields.hasErrors('overtimeHours')}" >
+                                        <div class="error__icon">
+                                            <svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m13 13h-2v-6h2zm0 4h-2v-2h2zm-1-15c-1.3132 0-2.61358.25866-3.82683.7612-1.21326.50255-2.31565 1.23915-3.24424 2.16773-1.87536 1.87537-2.92893 4.41891-2.92893 7.07107 0 2.6522 1.05357 5.1957 2.92893 7.0711.92859.9286 2.03098 1.6651 3.24424 2.1677 1.21325.5025 2.51363.7612 3.82683.7612 2.6522 0 5.1957-1.0536 7.0711-2.9289 1.8753-1.8754 2.9289-4.4189 2.9289-7.0711 0-1.3132-.2587-2.61358-.7612-3.82683-.5026-1.21326-1.2391-2.31565-2.1677-3.24424-.9286-.92858-2.031-1.66518-3.2443-2.16773-1.2132-.50254-2.5136-.7612-3.8268-.7612z" fill="#393a37"></path></svg>
+                                        </div>
+                                        <div><span th:errors="*{overtimeHours}" class="error__title"></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-span-full">
+                                <label for="reason" class="block text-sm font-medium leading-6 text-gray-900">Reason</label>
+                                <div class="mt-2">
+                                    <textarea id="reason" name="reason" th:field="*{reason}" rows="3" style="padding-left: 20px" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"></textarea>
+                                    <div class="error" th:if="${#fields.hasErrors('reason')}" >
+                                        <div class="error__icon">
+                                            <svg fill="none" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="m13 13h-2v-6h2zm0 4h-2v-2h2zm-1-15c-1.3132 0-2.61358.25866-3.82683.7612-1.21326.50255-2.31565 1.23915-3.24424 2.16773-1.87536 1.87537-2.92893 4.41891-2.92893 7.07107 0 2.6522 1.05357 5.1957 2.92893 7.0711.92859.9286 2.03098 1.6651 3.24424 2.1677 1.21325.5025 2.51363.7612 3.82683.7612 2.6522 0 5.1957-1.0536 7.0711-2.9289 1.8753-1.8754 2.9289-4.4189 2.9289-7.0711 0-1.3132-.2587-2.61358-.7612-3.82683-.5026-1.21326-1.2391-2.31565-2.1677-3.24424-.9286-.92858-2.031-1.66518-3.2443-2.16773-1.2132-.50254-2.5136-.7612-3.8268-.7612z" fill="#393a37"></path></svg>
+                                        </div>
+                                        <div><span th:errors="*{reason}" class="error__title"></span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-6 flex items-center justify-end gap-x-6">
+                        <button type="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Save</button>
+                    </div>
+                </div>
+
+
+            </form>
+
+        </div>
+    </section>
+</div>
+<footer th:replace="footer :: footer"></footer>
+</body>
+</html>

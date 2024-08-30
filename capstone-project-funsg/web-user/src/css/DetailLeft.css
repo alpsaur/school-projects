@@ -1,0 +1,56 @@
+.eventDetail-photo {
+    width: 80%;
+    aspect-ratio: 16 / 9;
+
+}
+.subnav{
+    padding-top: 1rem;
+    width: 80%;
+}
+.content{
+    margin-top: 15px;
+    width: 80%;
+    min-height:15rem;
+    padding-bottom: 2rem;
+}
+.detail{
+    margin-top: 2rem;
+}
+.comment-container {
+    display: flex;
+    flex-direction: column;
+    height: auto; /* Adjust based on the parent container's height */
+    position: relative;
+}
+
+.comment-list {
+    flex: 1;
+    overflow-y: auto; /* Enables scrolling */
+    padding-bottom: 60px; /* Add space for the sendComment area */
+}
+
+.sendComment {
+    position: fixed;
+    bottom: 0;
+    left: 13%;
+    width: 35%;
+    padding: 10px; /* Adjust padding as needed */
+}
+.photoContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+.img-item {
+    width: calc(33.3333% - 10px);
+    margin-bottom: 15px;
+    border-radius: 10px;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    margin-left: 10px;
+}
+.photoContainer img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
