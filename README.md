@@ -16,5 +16,8 @@ Leave Application System that accomodates three types of employee roles, namely:
 - [Python Fruit Image Classifier](./python-ml-fruit-image-classifier)
 An image classifier model that can identify 4 classes of fruit. Apples only, Oranges only, Banana only, or a mix of the above 3 fruits.
   
-- [C# .NET Shopping Cart](./csharp-dotnet-shopping-cart)
+- [C# ASP.NET Shopping Cart](./csharp-dotnet-shopping-cart)
 An ASP.NET Shopping Cart web application featuring user login/logout, product browsing, search functionality, a dynamic cart system, activation code management, and purchase history tracking.
+
+- [CI/CD pipeline](./git-cicd-go-fortune)
+CI/CD pipeline for a Golang application using GitHub Actions to automate code vulnerability scanning, containerization, and Docker image management, with Slack notifications for workflow status updates. 
