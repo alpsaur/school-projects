@@ -1,0 +1,76 @@
+on:
+  push:
+    branches:
+      - 'release/v*.*'
+
+jobs:
+  my-first-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Trivy Scanner with dynamic severity
+      - name: Run Trivy scanner
+        id: trivy-scan
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          trivy-config: trivy.yaml
+          format: 'table'
+          exit-code: '1'
+          severity: ${{ secrets.TRIVY_SEVERITY }}
+          output: 'trivy-report.txt'
+
+      # Slack Notification on Failure
+      - name: Slack Notification on Failure
+        if: failure()
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_CHANNEL: ${{ secrets.SLACK_CHANNEL_ID }} # CHANGE THIS TO submission or test-submission
+          SLACK_USERNAME: DipSA58 CICD
+          SLACK_MESSAGE: |
+            *Scan failed - Alphonsus Tay*
+            Failed trivy scan, see uploaded report.
+
+
+
+      # Slack Notification on Success
+      - name: Slack Notification on Success
+        if: success()
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_CHANNEL: ${{ secrets.SLACK_CHANNEL_ID }}
+          SLACK_USERNAME: DipSA58 CICD
+          SLACK_TITLE: 'Image build and signed'
+          SLACK_MESSAGE: |
+            *Name*: Alphonsus Tay
+            *Matriculation*: A0290884N
+            *Email*: alphonsus.tay@gmail.com
+            *Git*: https://github.com/alpsaur/go-fortune
+            *Image*: https://hub.docker.com/repository/docker/alpsaur/ghact-go-fortune
+
+      # Upload Trivy Scan Report to Slack
+      - name: Upload scan report to Slack
+        if: ${{ steps.trivy-scan.outcome == 'success' }}
+        run: |
+          curl -F file=@trivy-report.txt \
+               -F "initial_comment=Scan report by Alphonsus Tay" \
+               -F channels=$SLACK_CHANNEL \
+               -H "Authorization: Bearer ${{ secrets.SLACK_BOT_TOKEN }}" \
+               https://slack.com/api/files.upload
+        env:
+          SLACK_CHANNEL: test # CHANGE THIS TO submission or test-submission
+
+      # Docker
+      #- name: Build and push Docker image
+      #  if: steps.trivy-scan.outcome == 'success'
+      #  uses: docker/build-push-action@v2
+      #  with:
+      #    context: .
+      #    file: ./Dockerfile
+      #    push: true
+      #    tags: alpsaur/go-fortune:${{ github.sha }}

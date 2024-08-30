@@ -1,0 +1,86 @@
+name: Build and Push
+
+on:
+  push:
+    branches:
+      - 'release/v*.*'
+
+env:
+  REGISTRY: docker.io
+  IMAGE_NAME: alpsaur/go-fortune
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+      id-token: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: true
+          tags: ${{ env.IMAGE_NAME }}:${{ github.sha }}
+
+      - name: Run Trivy scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: 'fs'
+          scan-ref: '.'
+          format: 'table'
+          output: 'trivy-report.txt'
+          severity: HIGH
+          exit-code: '0'
+
+      - name: Slack Notification on Failure
+        #if: failure()
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_TS }}
+          SLACK_CHANNEL: ${{ secrets.SLACK_CHANNEL_ID_TS }}
+          SLACK_USERNAME: DipSA58 CICD
+          SLACK_MESSAGE: |
+            *Scan failed - Alphonsus Tay*
+            Failed trivy scan, see uploaded report.
+          SLACK_COLOR: '#ff0000'
+
+      # Slack Notification on Success
+      - name: Slack Notification on Success
+        #if: success()
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK_TS }}
+          SLACK_CHANNEL: ${{ secrets.SLACK_CHANNEL_ID_TS }}
+          SLACK_USERNAME: DipSA58 CICD
+          SLACK_TITLE: 'Image build and signed'
+          SLACK_MESSAGE: |
+            *Name*: Alphonsus Tay
+            *Matriculation*: A0290884N
+            *Email*: alphonsus.tay@gmail.com
+            *Git*: https://github.com/alpsaur/go-fortune
+            *Image*: https://hub.docker.com/repository/docker/alpsaur/ghact-go-fortune
+
+      - name: Slack Upload on Failure
+        #if: ${{ always() }}
+        #needs: [job1, job2]
+        uses: MeilCli/slack-upload-file@v4
+        with:
+          slack_token: ${{ secrets.SLACK_TOKEN }}
+          channel_id: ${{ secrets.CHANNEL_ID_TS  }}
+          file_path: 'trivy-report.txt'
+          initial_comment: 'Scan report by Alphonsus Tay'
