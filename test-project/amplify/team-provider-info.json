@@ -1,0 +1,210 @@
+{
+  "kk": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-ibis-kk-676f2-authRole",
+      "UnauthRoleArn": "arn:aws:iam::057053473890:role/amplify-ibis-kk-676f2-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::057053473890:role/amplify-ibis-kk-676f2-authRole",
+      "Region": "ap-southeast-1",
+      "DeploymentBucketName": "amplify-ibis-kk-676f2-deployment",
+      "UnauthRoleName": "amplify-ibis-kk-676f2-unauthRole",
+      "StackName": "amplify-ibis-kk-676f2",
+      "StackId": "arn:aws:cloudformation:ap-southeast-1:057053473890:stack/amplify-ibis-kk-676f2/c732a6f0-589d-11ef-9637-02885a3973a7",
+      "AmplifyAppId": "dh2ddtk39bfwm",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-ibis-kk-676f2-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-ibis-kk-676f2-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
+      "auth": {
+        "ibis3819ddbf": {}
+      },
+      "function": {
+        "IBISProject": {
+          "deploymentBucketName": "amplify-ibis-kk-676f2-deployment",
+          "s3Key": "amplify-builds/IBISProject-774a627a6c45792f4570-build.zip",
+          "mongodbUser": "ibisdev",
+          "mongodbPassword": "3piTz_r!sE-SWx!",
+          "dbName": "ibis-test"
+        },
+        "ibis3819ddbfPostConfirmation": {
+          "GROUP": "BasicUser",
+          "deploymentBucketName": "amplify-ibis-kk-676f2-deployment",
+          "s3Key": "amplify-builds/ibis3819ddbfPostConfirmation-76544c44687059692b2b-build.zip"
+        },
+        "uploadAdminHandler": {
+          "region": "ap-southeast-1",
+          "deploymentBucketName": "amplify-ibis-kk-676f2-deployment",
+          "s3Key": "amplify-builds/uploadAdminHandler-6f3076543041774f7669-build.zip"
+        },
+        "uploadFile": {
+          "deploymentBucketName": "amplify-ibis-kk-676f2-deployment",
+          "s3Key": "amplify-builds/uploadFile-6f44712b695a4b734a79-build.zip"
+        },
+        "ibis3819ddbf": {},
+        "IbisFileStorage": {},
+        "IbisGraphQlApiV2": {},
+        "testFunction": {}
+      },
+      "storage": {
+        "IbisFileStorage": {}
+      },
+      "api": {
+        "IbisGraphQlApiV2": {},
+        "apiUploadResultFile": {}
+      }
+    }
+  },
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-ibis-dev-93617-authRole",
+      "UnauthRoleArn": "arn:aws:iam::057053473890:role/amplify-ibis-dev-93617-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::057053473890:role/amplify-ibis-dev-93617-authRole",
+      "Region": "ap-southeast-1",
+      "DeploymentBucketName": "amplify-ibis-dev-93617-deployment",
+      "UnauthRoleName": "amplify-ibis-dev-93617-unauthRole",
+      "StackName": "amplify-ibis-dev-93617",
+      "StackId": "arn:aws:cloudformation:ap-southeast-1:057053473890:stack/amplify-ibis-dev-93617/3ceac2e0-efc8-11ee-b329-0625adfee533",
+      "AmplifyAppId": "dh2ddtk39bfwm",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-ibis-dev-93617-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-ibis-dev-93617-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
+      "auth": {
+        "ibis3819ddbf": {}
+      },
+      "function": {
+        "IBISProject": {
+          "deploymentBucketName": "amplify-ibis-dev-93617-deployment",
+          "s3Key": "amplify-builds/IBISProject-68705a426954704e5162-build.zip",
+          "mongodbUser": "ibisdev",
+          "mongodbPassword": "3piTz_r!sE-SWx!",
+          "dbName": "ibis-test"
+        },
+        "uploadFile": {
+          "deploymentBucketName": "amplify-ibis-dev-93617-deployment",
+          "s3Key": "amplify-builds/uploadFile-51756447322b34384f53-build.zip"
+        },
+        "ibis3819ddbfPostConfirmation": {
+          "deploymentBucketName": "amplify-ibis-dev-93617-deployment",
+          "s3Key": "amplify-builds/ibis3819ddbfPostConfirmation-76544c44687059692b2b-build.zip",
+          "GROUP": "ibisteam"
+        },
+        "uploadAdminHandler": {
+          "region": "ap-southeast-1",
+          "deploymentBucketName": "amplify-ibis-dev-93617-deployment",
+          "s3Key": "amplify-builds/uploadAdminHandler-6f3076543041774f7669-build.zip"
+        }
+      },
+      "storage": {
+        "IbisFileStorage": {}
+      },
+      "api": {
+        "IbisGraphQlApiV2": {},
+        "apiUploadResultFile": {}
+      }
+    }
+  },
+  "testshenyu": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-ibis-testshenyu-145909-authRole",
+      "UnauthRoleArn": "arn:aws:iam::057053473890:role/amplify-ibis-testshenyu-145909-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::057053473890:role/amplify-ibis-testshenyu-145909-authRole",
+      "Region": "ap-southeast-1",
+      "DeploymentBucketName": "amplify-ibis-testshenyu-145909-deployment",
+      "UnauthRoleName": "amplify-ibis-testshenyu-145909-unauthRole",
+      "StackName": "amplify-ibis-testshenyu-145909",
+      "StackId": "arn:aws:cloudformation:ap-southeast-1:057053473890:stack/amplify-ibis-testshenyu-145909/ff5dce20-f7d0-11ee-93a5-02cfb147cb39",
+      "AmplifyAppId": "dh2ddtk39bfwm",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-ibis-testshenyu-145909-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-ibis-testshenyu-145909-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
+      "auth": {
+        "ibis3819ddbf": {}
+      },
+      "function": {
+        "IBISProject": {
+          "deploymentBucketName": "amplify-ibis-testshenyu-145909-deployment",
+          "s3Key": "amplify-builds/IBISProject-63735872363155372f52-build.zip"
+        },
+        "uploadFile": {
+          "deploymentBucketName": "amplify-ibis-testshenyu-145909-deployment",
+          "s3Key": "amplify-builds/uploadFile-426543534f6543745165-build.zip"
+        },
+        "ibis3819ddbfPostConfirmation": {
+          "deploymentBucketName": "amplify-ibis-testshenyu-145909-deployment",
+          "s3Key": "amplify-builds/ibis3819ddbfPostConfirmation-76544c44687059692b2b-build.zip",
+          "GROUP": "IbisAdminGroup"
+        },
+        "testFunction": {
+          "deploymentBucketName": "amplify-ibis-testshenyu-145909-deployment",
+          "s3Key": "amplify-builds/testFunction-7144652f30484e475251-build.zip"
+        },
+        "uploadAdminHandler": {
+          "region": "ap-southeast-1",
+          "s3BucketName": "ibisa239bb743bb9403eadc882114de3bdd3145909",
+          "deploymentBucketName": "amplify-ibis-testshenyu-145909-deployment",
+          "s3Key": "amplify-builds/uploadAdminHandler-43336e30477958315135-build.zip"
+        }
+      },
+      "storage": {
+        "IbisFileStorage": {}
+      },
+      "api": {
+        "IbisGraphQlApiV2": {},
+        "apiUploadResultFile": {}
+      }
+    }
+  },
+  "testshiyi": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-ibis-testshiyi-133535-authRole",
+      "UnauthRoleArn": "arn:aws:iam::057053473890:role/amplify-ibis-testshiyi-133535-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::057053473890:role/amplify-ibis-testshiyi-133535-authRole",
+      "Region": "ap-southeast-1",
+      "DeploymentBucketName": "amplify-ibis-testshiyi-133535-deployment",
+      "UnauthRoleName": "amplify-ibis-testshiyi-133535-unauthRole",
+      "StackName": "amplify-ibis-testshiyi-133535",
+      "StackId": "arn:aws:cloudformation:ap-southeast-1:057053473890:stack/amplify-ibis-testshiyi-133535/aac1a560-efe9-11ee-b418-02e429dc5135",
+      "AmplifyAppId": "dh2ddtk39bfwm",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-ibis-testshiyi-133535-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-ibis-testshiyi-133535-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
+      "auth": {
+        "ibis3819ddbf": {},
+        "userPoolGroups": {}
+      },
+      "function": {
+        "IBISProject": {
+          "deploymentBucketName": "amplify-ibis-testshiyi-133535-deployment",
+          "s3Key": "amplify-builds/IBISProject-63735872363155372f52-build.zip"
+        },
+        "uploadFile": {
+          "deploymentBucketName": "amplify-ibis-testshiyi-133535-deployment",
+          "s3Key": "amplify-builds/uploadFile-426543534f6543745165-build.zip"
+        },
+        "uploadAdminHandler": {
+          "deploymentBucketName": "amplify-ibis-testshiyi-133535-deployment",
+          "s3Key": "amplify-builds/uploadAdminHandler-43336e30477958315135-build.zip",
+          "region": "ap-southeast-1",
+          "s3BucketName": "ibisa239bb743bb9403eadc882114de3bdd3133535"
+        },
+        "ibis3819ddbfPostConfirmation": {
+          "deploymentBucketName": "amplify-ibis-testshiyi-133535-deployment",
+          "s3Key": "amplify-builds/ibis3819ddbfPostConfirmation-76544c44687059692b2b-build.zip"
+        },
+        "testFunction": {
+          "deploymentBucketName": "amplify-ibis-testshiyi-133535-deployment",
+          "s3Key": "amplify-builds/testFunction-7144652f30484e475251-build.zip"
+        }
+      },
+      "api": {
+        "IbisGraphQlApiV2": {},
+        "apiUploadResultFile": {}
+      },
+      "storage": {
+        "IbisFileStorage": {}
+      }
+    }
+  }
+}

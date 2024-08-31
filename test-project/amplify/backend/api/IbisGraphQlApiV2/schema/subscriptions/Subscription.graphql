@@ -1,0 +1,4 @@
+type Subscription {
+  onUpdateIbisProbeResultStatus(id: ID!): IbisProbeResult
+    @aws_subscribe(mutations: ["updateIbisProbeResultStatus"])
+}

@@ -1,0 +1,23 @@
+{
+  "version": 1,
+  "paths": {
+    "/uploadresult": {
+      "name": "/uploadresult",
+      "lambdaFunction": "uploadAdminHandler",
+      "permissions": {
+        "setting": "protected",
+        "auth": [
+          "create",
+          "read",
+          "update",
+          "delete"
+        ],
+        "guest": [
+          "create",
+          "read",
+          "update"
+        ]
+      }
+    }
+  }
+}

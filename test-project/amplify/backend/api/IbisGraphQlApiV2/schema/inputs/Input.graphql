@@ -1,0 +1,195 @@
+# QUERY & MUTATION & SUBSCRIPTION
+input CreateProjectInput {
+  id: ID
+  name: String
+  description: String
+  ownerId: String
+}
+
+input CreateFileInput {
+  id: ID
+  name: String!
+  filepath: String
+  projectId: ID!
+  description: String
+  isGenerated: Boolean!
+  fileMetadata: [CreateFileMetadataInput]
+}
+
+input CreateFileMetadataInput {
+  id: ID
+  key: String
+  value: String
+  fileId: ID
+}
+
+input CreateFileCategoryInput {
+  id: ID!
+  name: String!
+  description: String
+  acceptableExtensions: [String!]!
+}
+
+input CreateFileGroupSettingInput {
+  id: ID
+  name: String
+  description: String
+  ownerId: String
+}
+
+input CreateFileCombinationInput {
+  id: ID
+  name: String
+  description: String
+  categoryId: ID
+  quantity: Int
+  fileGroupSettingId: ID
+}
+
+input CreateProbeGroupInput {
+  id: ID
+  refNo: String
+  name: String
+  description: String
+  isPublic: Boolean
+  ownerId: String
+  probeIds: [ID!]
+  type: String
+}
+
+input CreateProbeInput {
+  id: ID!
+  refNo: String
+  name: String!
+  url: String!
+  description: String
+  fileGroupSettingId: ID
+  ownerId: String
+  isPublic: Boolean
+  type: ProbeTypeEnum!
+  subprobes: [CreateSubProbeInput!]!
+}
+
+input CreateSubProbeInput {
+  id: ID
+  name: String
+  description: String
+  isVisible: Boolean
+  probeId: ID
+  ownerId: String
+  parameters: [CreateParameterInput!]
+}
+
+input CreateParameterInput {
+  id: ID
+  ownerId: String
+  name: String
+  value: Float
+  type: String
+  minThreshold: Float
+  maxThreshold: Float
+  unit: String
+  valueType: String
+  isIncludedValue: Boolean
+  subProbeId: ID
+}
+
+
+
+input CreateProbeGroupResultInput {
+  id: ID
+  probeGroupId: ID
+  status: String
+  description: String
+  inspectionId: ID
+  probeResults: [CreateProbeResultInput!]
+}
+
+input CreateProbeResultInput {
+  id: ID
+  probeId: ID
+  resultFileId: ID
+  description: String
+  inputFileIds: [String!]
+  probeGroupResultId: ID
+  status: String
+}
+
+input CreateMyPairInput {
+  key: String
+  value: Int
+}
+input CreateInspectionInput {
+  id: ID!
+  refNo: String
+  name: String!
+  description: String
+  type: ProbeTypeEnum!
+  status: InspectionStatusEnum!
+  projectId: ID!
+  probeGroupResults: [CreateProbeGroupResultInput!]
+}
+
+input UpdateInspectionInput {
+  id: ID!
+  refNo: String
+  name: String
+  description: String
+  type: ProbeTypeEnum
+  status: InspectionStatusEnum
+  projectId: ID
+  probeGroupResults: [CreateProbeGroupResultInput!]
+}
+
+input UpdateProbeInput {
+  id: ID!
+  refNo: String
+  name: String
+  url: String
+  description: String
+  fileGroupSettingId: ID
+  ownerId: String
+  isPublic: Boolean
+  type: ProbeTypeEnum
+  subprobes: [CreateSubProbeInput!]!
+}
+
+input UpdateProjectInput {
+  id: ID
+  name: String
+  description: String
+  ownerId: String
+}
+
+input UpdateFileCategoryInput {
+  id: ID
+  name: String
+  description: String
+  acceptableExtensions: [String!]
+}
+
+input UpdateFileGroupSettingInput {
+  id: ID!
+  name: String
+  description: String
+  ownerId: String
+}
+
+input UpdateFileCombinationInput {
+  id: ID
+  name: String
+  description: String
+  categoryId: ID
+  quantity: Int
+  fileGroupSettingId: ID
+}
+
+input UpdateFileInput {
+  id: ID!
+  name: String
+  filepath: String
+  projectId: ID
+  description: String
+  isGenerated: Boolean
+  fileMetadata: [CreateFileMetadataInput]
+}

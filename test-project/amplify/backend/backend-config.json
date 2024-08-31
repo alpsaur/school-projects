@@ -1,0 +1,265 @@
+{
+  "api": {
+    "IbisGraphQlApiV2": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "ibis3819ddbf"
+        }
+      ],
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [
+            {
+              "apiKeyConfig": {
+                "apiKeyExpirationDate": "2025-04-22T05:34:06.591Z",
+                "apiKeyExpirationDays": 365,
+                "description": "apikey"
+              },
+              "authenticationType": "API_KEY"
+            },
+            {
+              "authenticationType": "AWS_IAM"
+            }
+          ],
+          "defaultAuthentication": {
+            "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+            "userPoolConfig": {
+              "userPoolId": "authibis3819ddbf"
+            }
+          }
+        }
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync"
+    },
+    "apiUploadResultFile": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "uploadAdminHandler"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "auth": {
+    "ibis3819ddbf": {
+      "customAuth": false,
+      "dependsOn": [
+        {
+          "attributes": [
+            "Arn",
+            "Name"
+          ],
+          "category": "function",
+          "resourceName": "ibis3819ddbfPostConfirmation",
+          "triggerProvider": "Cognito"
+        }
+      ],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito"
+    }
+  },
+  "function": {
+    "IBISProject": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "ibis3819ddbfPostConfirmation": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "uploadAdminHandler": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "ibis3819ddbf"
+        },
+        {
+          "attributes": [
+            "BucketName"
+          ],
+          "category": "storage",
+          "resourceName": "IbisFileStorage"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "uploadFile": {
+      "build": true,
+      "dependsOn": [
+        {
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ],
+          "category": "api",
+          "resourceName": "IbisGraphQlApiV2"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "hosting": {},
+  "parameters": {
+    "AMPLIFY_function_IBISProject_dbName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "IBISProject"
+        }
+      ]
+    },
+    "AMPLIFY_function_IBISProject_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "IBISProject"
+        }
+      ]
+    },
+    "AMPLIFY_function_IBISProject_mongodbPassword": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "IBISProject"
+        }
+      ]
+    },
+    "AMPLIFY_function_IBISProject_mongodbUser": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "IBISProject"
+        }
+      ]
+    },
+    "AMPLIFY_function_IBISProject_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "IBISProject"
+        }
+      ]
+    },
+    "AMPLIFY_function_ibis3819ddbfPostConfirmation_GROUP": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "ibis3819ddbfPostConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_ibis3819ddbfPostConfirmation_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "ibis3819ddbfPostConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_ibis3819ddbfPostConfirmation_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "ibis3819ddbfPostConfirmation"
+        }
+      ]
+    },
+    "AMPLIFY_function_uploadAdminHandler_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "uploadAdminHandler"
+        }
+      ]
+    },
+    "AMPLIFY_function_uploadAdminHandler_region": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "uploadAdminHandler"
+        }
+      ]
+    },
+    "AMPLIFY_function_uploadAdminHandler_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "uploadAdminHandler"
+        }
+      ]
+    },
+    "AMPLIFY_function_uploadFile_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "uploadFile"
+        }
+      ]
+    },
+    "AMPLIFY_function_uploadFile_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "uploadFile"
+        }
+      ]
+    }
+  },
+  "storage": {
+    "IbisFileStorage": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "LambdaExecutionRole"
+          ],
+          "category": "function",
+          "resourceName": "uploadFile"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "S3"
+    }
+  }
+}

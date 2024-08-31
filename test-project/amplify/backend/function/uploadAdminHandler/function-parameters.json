@@ -1,0 +1,24 @@
+{
+  "lambdaLayers": [],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "region",
+      "environmentVariableName": "REGION"
+    }
+  ],
+  "permissions": {
+    "auth": {
+      "ibis3819ddbf": [
+        "create",
+        "read",
+        "update",
+        "delete"
+      ]
+    },
+    "storage": {
+      "IbisFileStorage": [
+        "create"
+      ]
+    }
+  }
+}

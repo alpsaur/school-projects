@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "api": {
+      "IbisGraphQlApiV2": [
+        "Query",
+        "Mutation",
+        "Subscription"
+      ]
+    }
+  },
+  "lambdaLayers": []
+}

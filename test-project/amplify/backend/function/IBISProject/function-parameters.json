@@ -1,0 +1,29 @@
+{
+  "lambdaLayers": [],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "mongodbUser",
+      "environmentVariableName": "MONGODB_USER"
+    },
+    {
+      "cloudFormationParameterName": "mongodbPassword",
+      "environmentVariableName": "MONGODB_PASSWORD"
+    },
+    {
+      "cloudFormationParameterName": "dbName",
+      "environmentVariableName": "DB_NAME"
+    },
+    {
+      "cloudFormationParameterName": "mongodbUser",
+      "environmentVariableName": "MONGODB_USER"
+    },
+    {
+      "cloudFormationParameterName": "mongodbPassword",
+      "environmentVariableName": "MONGODB_PASSWORD"
+    },
+    {
+      "cloudFormationParameterName": "dbName",
+      "environmentVariableName": "DB_NAME"
+    }
+  ]
+}

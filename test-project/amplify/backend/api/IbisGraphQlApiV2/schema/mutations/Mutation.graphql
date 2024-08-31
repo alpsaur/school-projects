@@ -1,0 +1,98 @@
+type Mutation {
+  createIbisProject(input: CreateProjectInput!): ID
+    @function(name: "IBISProject-${env}")
+  updateIbisProject(input: CreateProjectInput!): ID
+    @function(name: "IBISProject-${env}")
+  deleteIbisProject(deleteId: ID!): ID @function(name: "IBISProject-${env}")
+
+  createIbisFile(input: CreateFileInput!): ID
+    @aws_iam
+    @aws_cognito_user_pools
+    @function(name: "IBISProject-${env}")
+  updateIbisFile(input: CreateFileInput!): ID
+    @function(name: "IBISProject-${env}")
+  deleteIbisFile(deleteId: ID!): ID @function(name: "IBISProject-${env}")
+
+  createIbisFileCategory(input: CreateFileCategoryInput!): ID
+    @function(name: "IBISProject-${env}")
+  updateIbisFileCategory(input: UpdateFileCategoryInput!): ID
+    @function(name: "IBISProject-${env}")
+  deleteIbisFileCategory(deleteId: ID!): ID
+    @function(name: "IBISProject-${env}")
+
+  createIbisFileCombination(input: CreateFileCombinationInput!): ID
+    @function(name: "IBISProject-${env}")
+  updateIbisFileCombination(input: UpdateFileCombinationInput!): ID
+    @function(name: "IBISProject-${env}")
+  deleteIbisFileCombination(deleteId: ID!): ID
+    @function(name: "IBISProject-${env}")
+
+  createIbisFileGroupSetting(input: CreateFileGroupSettingInput!): ID
+    @function(name: "IBISProject-${env}")
+  updateIbisFileGroupSetting(input: UpdateFileGroupSettingInput!): ID
+    @function(name: "IBISProject-${env}")
+  deleteIbisFileGroupSetting(deleteId: ID!): ID
+    @function(name: "IBISProject-${env}")
+
+  createIbisFileMetadata(input: CreateFileMetadataInput!): ID
+    @aws_iam
+    @aws_cognito_user_pools
+    @function(name: "IBISProject-${env}") # this seems not used ... ?
+  updateIbisFileMetadata(input: CreateFileMetadataInput!): ID
+    @function(name: "IBISProject-${env}")
+  deleteIbisFileMetadata(deleteId: ID!): ID
+    @function(name: "IBISProject-${env}")
+
+  createIbisProbeGroup(input: CreateProbeGroupInput!): ID
+    @function(name: "IBISProject-${env}")
+  updateIbisProbeGroup(input: CreateProbeGroupInput!): ID
+    @function(name: "IBISProject-${env}")
+  deleteIbisProbeGroup(deleteId: ID!): ID @function(name: "IBISProject-${env}")
+
+  createIbisProbe(input: CreateProbeInput!): ID
+    @function(name: "IBISProject-${env}")
+  updateIbisProbe(input: UpdateProbeInput!): ID
+    @function(name: "IBISProject-${env}")
+  deleteIbisProbe(deleteId: ID!): ID @function(name: "IBISProject-${env}")
+
+  createIbisSubProbe(input: CreateSubProbeInput!): ID
+    @function(name: "IBISProject-${env}")
+  updateIbisSubProbe(input: CreateSubProbeInput!): ID
+    @function(name: "IBISProject-${env}")
+  deleteIbisSubProbe(deleteId: ID!): ID @function(name: "IBISProject-${env}")
+
+  createIbisParameter(input: CreateParameterInput!): ID
+    @function(name: "IBISProject-${env}")
+  updateIbisParameter(input: CreateParameterInput!): ID
+    @function(name: "IBISProject-${env}")
+  deleteIbisParameter(deleteId: ID!): ID @function(name: "IBISProject-${env}")
+
+  createIbisInspection(input: CreateInspectionInput!): ID
+    @function(name: "IBISProject-${env}")
+  updateIbisInspection(input: UpdateInspectionInput!): ID
+    @function(name: "IBISProject-${env}")
+  deleteIbisInspection(deleteId: ID!): ID @function(name: "IBISProject-${env}")
+
+  createIbisProbeGroupResult(input: CreateProbeGroupResultInput!): ID
+    @function(name: "IBISProject-${env}")
+  updateIbisProbeGroupResult(input: CreateProbeGroupResultInput!): ID
+    @function(name: "IBISProject-${env}")
+  deleteIbisProbeGroupResult(deleteId: ID!): ID
+    @function(name: "IBISProject-${env}")
+
+  createIbisProbeResult(input: CreateProbeResultInput!): ID
+    @function(name: "IBISProject-${env}")
+  updateIbisProbeResult(input: CreateProbeResultInput!): ID
+    @aws_iam
+    @aws_cognito_user_pools
+    @function(name: "IBISProject-${env}")
+  deleteIbisProbeResult(deleteId: ID!): ID @function(name: "IBISProject-${env}")
+
+  # the CUD for ProjectUserGroup can be ignore currently ...
+
+  # Special Mutation for Subscription ...
+  updateIbisProbeResultStatus(input: CreateProbeResultInput!): IbisProbeResult
+    @aws_iam
+    @aws_cognito_user_pools
+    @function(name: "IBISProject-${env}")
+}

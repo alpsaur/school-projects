@@ -1,0 +1,52 @@
+{
+  "name": "ibis",
+  "version": "0.1.5",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "co:login": "aws codeartifact login --tool npm --repository ibis-library --domain nus-cee --domain-owner 057053473890 --region ap-southeast-1",
+    "build-start": "next build && next start"
+  },
+  "dependencies": {
+    "@aws-amplify/adapter-nextjs": "^1.0.28",
+    "@aws-amplify/ui-react": "^6.1.6",
+    "@aws-crypto/sha256-js": "^2.0.1",
+    "@aws-sdk/client-s3": "3.606.0",
+    "@aws-sdk/credential-provider-node": "^3.76.0",
+    "@aws-sdk/credential-providers": "3.606.0",
+    "@aws-sdk/s3-request-presigner": "3.606.0",
+    "@smithy/protocol-http": "^4.0.3",
+    "@smithy/signature-v4": "^3.1.2",
+    "@thatopen/components": "2.2.0",
+    "@thatopen/components-front": "2.2.0",
+    "@thatopen/fragments": "^2.2.0",
+    "aws-amplify": "^6.5.0",
+    "chart.js": "^4.4.3",
+    "next": "^14.2.4",
+    "node-fetch": "^3.3.2",
+    "react": "^18",
+    "react-chartjs-2": "^5.2.0",
+    "react-dom": "^18",
+    "sharp": "^0.33.3",
+    "three": "^0.160.1",
+    "uuid": "^9.0.1",
+    "web-ifc": "^0.0.57"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.92",
+    "@types/node": "^20",
+    "@types/react": "^18.2.19",
+    "@types/react-dom": "^18",
+    "@types/stats.js": "^0.17.3",
+    "@types/three": "^0.164.0",
+    "autoprefixer": "^10.0.1",
+    "eslint": "^8",
+    "eslint-config-next": "14.1.4",
+    "postcss": "^8",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5"
+  }
+}

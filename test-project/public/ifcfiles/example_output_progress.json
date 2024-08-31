@@ -1,0 +1,184 @@
+{
+  "appId": "IBIS",
+  "refId": "",
+  "inspectionId": "66752c7843768dec707b934f",
+  "probeResultId": "66752c9443768dec707b9373",
+  "projectId": "666bafb46e6cdb388ca30c3a",
+  "probe": {
+    "id": "6672640c1a5122d13b8d1504",
+    "ownerId": "c9dac58c-2021-704b-7a11-239b819f4ff8",
+    "refNo": "NUS001",
+    "name": "PROGRESS PROBE - 1",
+    "url": "https://..",
+    "description": "Are all elements specified below been constructed?",
+    "type": "PROGRESS",
+    "fileGroupSetting": {
+      "name": "Default Setting 3",
+      "description": "contains ifc file",
+      "fileCombinations": [
+        {
+          "name": "IFC",
+          "description": "need 1 IFC type file",
+          "quantity": 1,
+          "category": {
+            "name": "IFC",
+            "description": "The basic IFC type file",
+            "acceptableExtensions": ["ifc"]
+          }
+        },
+        {
+          "name": "POINT_CLOUD_1_LAS",
+          "description": "Need 1 LAS FILE",
+          "quantity": 1,
+          "category": {
+            "name": "LAS",
+            "description": "The basic IFC type file",
+            "acceptableExtensions": ["las"]
+          }
+        }
+      ]
+    },
+    "subprobes": [
+      {
+        "id": "6672640e1a5122d13b8d1507",
+        "ownerId": "c9dac58c-2021-704b-7a11-239b819f4ff8",
+        "name": "Are all Walls Been constructed? Expected Answer: [PASS] | [FAIL]",
+        "description": "This is to check all IFC Wall Elements found in IFC File has been constructed after comparing against the point cloud",
+        "isVisible": true,
+        "parameters": []
+      },
+      {
+        "id": "6672640e1a5122d13b8d1507",
+        "ownerId": "c9dac58c-2021-704b-7a11-239b819f4ff8",
+        "name": "Are all Walls Been constructed? Expected Answer: [PASS] | [FAIL]",
+        "description": "This is to check all IFC Wall Elements found in IFC File has been constructed after comparing against the point cloud",
+        "isVisible": true,
+        "parameters": []
+      }
+    ]
+  },
+  "inputFiles": [
+    {
+      "id": "1",
+      "name": "file1",
+      "signedUrl": "https://...",
+      "fileCategory": {
+        "name": "POINT CLOUD",
+        "acceptableExtensions": [".las", ".e57"]
+      }
+    },
+    {
+      "id": "2",
+      "name": "file2",
+      "signedUrl": "https://...",
+      "fileCategory": {
+        "name": "IFC",
+        "acceptableExtensions": [".ifc"]
+      }
+    }
+  ],
+  "result": {
+    "id": "66752c9443768dec707b9373",
+    "probeId": "6672640c1a5122d13b8d1504",
+    "status": "PASS",
+    "description": "All Sub Probes has Passed",
+    "subProbeResults": [
+      {
+        "id": "1",
+        "subProbeId": "6672640e1a5122d13b8d1507",
+        "status": "FAIL",
+        "description": "all checks passed",
+        "elements": [
+          {
+            "id": "820d1ec0-7fc8-41f9-bbf1-1efc4838e8c9",
+            "elementId": "0Dx8RM97v2HwhaMsE4FkZT",
+            "fileId": "123",
+            "status": "PASS",
+            "expectedValue": "PASS",
+            "actualValue": "PASS",
+            "parameterId": null,
+            "description": "Wall of IFCGUID [0Dx8RM97v2HwhaMsE4FkZT] has been constructed",
+            "valueType": "STRING",
+            "actualValueUnit": null,
+            "expectedValueUnit": null
+          },
+          {
+            "id": "820d1ec0-7fc8-41f9-bbf1-1efc4838e8c0",
+            "elementId": "0Dx8RM97v2HwhaMsE4Fkzx",
+            "fileId": "123",
+            "status": "PASS",
+            "expectedValue": "PASS",
+            "actualValue": "PASS",
+            "parameterId": null,
+            "description": "Wall of IFCGUID [0Dx8RM97v2HwhaMsE4Fkzx] has been constructed",
+            "valueType": "STRING",
+            "actualValueUnit": null,
+            "expectedValueUnit": null
+          },
+          {
+            "id": "820d1ec0-7fc8-41f9-bbf1-1efc4838e8c3",
+            "elementId": "0Dx8RM97v2HwhaMsE4Fkyz",
+            "fileId": "123",
+            "status": "FAIL",
+            "expectedValue": "PASS",
+            "actualValue": "FAIL",
+            "parameterId": null,
+            "description": "Wall of IFCGUID [0Dx8RM97v2HwhaMsE4Fkyz] has not been constructed",
+            "valueType": "STRING",
+            "actualValueUnit": null,
+            "expectedValueUnit": null
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "subProbeId": "6672640e1a5122d13b8d1508",
+        "status": "FAIL",
+        "description": "all checks passed",
+        "elements": [
+          {
+            "id": "820d1ec0-7fc8-41f9-bbf1-1efc4838e8c9",
+            "elementId": "0Dx8RM97v2HwhaMsE4FkXj",
+            "fileId": "123",
+            "status": "PASS",
+            "expectedValue": "PASS",
+            "actualValue": "PASS",
+            "parameterId": null,
+            "description": "IfcSlab of IFCGUID [0Dx8RM97v2HwhaMsE4FkXj] has been constructed",
+            "valueType": "STRING",
+            "actualValueUnit": null,
+            "expectedValueUnit": null
+          },
+          {
+            "id": "820d1ec0-7fc8-41f9-bbf1-1efc4838e8c0",
+            "elementId": "0Dx8RM97v2HwhaMsE4Fkzx",
+            "fileId": "123",
+            "status": "PASS",
+            "expectedValue": "PASS",
+            "actualValue": "PASS",
+            "parameterId": null,
+            "description": "Wall of IFCGUID [0Dx8RM97v2HwhaMsE4Fkzx] has been constructed",
+            "valueType": "STRING",
+            "actualValueUnit": null,
+            "expectedValueUnit": null
+          },
+          {
+            "id": "820d1ec0-7fc8-41f9-bbf1-1efc4838e8c3",
+            "elementId": "0Dx8RM97v2HwhaMsE4Fkyz",
+            "fileId": "123",
+            "status": "PASS",
+            "expectedValue": "PASS",
+            "actualValue": "PASS",
+            "parameterId": null,
+            "description": "Wall of IFCGUID [0Dx8RM97v2HwhaMsE4Fkyz] has been constructed",
+            "valueType": "STRING",
+            "actualValueUnit": null,
+            "expectedValueUnit": null
+          }
+        ]
+      }
+    ]
+  },
+  "error": null,
+  "webhookUrl": "--<testtest>--"
+}

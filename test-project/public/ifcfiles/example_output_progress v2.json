@@ -1,0 +1,166 @@
+{
+  "appId": "IBIS",
+  "refId": "",
+  "inspectionId": "66752c7843768dec707b934f",
+  "probeResultId": "66752c9443768dec707b9373",
+  "projectId": "666bafb46e6cdb388ca30c3a",
+  "probe": {
+    "id": "6672640c1a5122d13b8d1504",
+    "ownerId": "c9dac58c-2021-704b-7a11-239b819f4ff8",
+    "refNo": "NUS001",
+    "name": "PROGRESS PROBE - 1",
+    "url": "https://pp57cudqsb.execute-api.ap-southeast-1.amazonaws.com/probe/v1/dummy_result/betekk-dummy-probe-1",
+    "description": "Are all elements specified below been constructed?",
+    "type": "PROGRESS",
+    "fileGroupSetting": {
+      "name": "Default Setting 3",
+      "description": "contains ifc file",
+      "fileCombinations": [
+        {
+          "name": "IFC",
+          "description": "need 1 IFC type file",
+          "quantity": 1,
+          "category": {
+            "name": "IFC",
+            "description": "The basic IFC type file",
+            "acceptableExtensions": ["ifc"]
+          }
+        },
+        {
+          "name": "POINT_CLOUD_1_LAS",
+          "description": "Need 1 LAS FILE",
+          "quantity": 1,
+          "category": {
+            "name": "LAS",
+            "description": "The basic IFC type file",
+            "acceptableExtensions": ["las"]
+          }
+        }
+      ]
+    },
+    "subprobes": [
+      {
+        "id": "6672640e1a5122d13b8d1507",
+        "ownerId": "c9dac58c-2021-704b-7a11-239b819f4ff8",
+        "name": "Are all Walls Been constructed? Expected Answer: [PASS] | [FAIL]",
+        "description": "This is to check all IFC Wall Elements found in IFC File has been constructed after comparing against the point cloud",
+        "isVisible": true,
+        "parameters": []
+      },
+      {
+        "id": "6672640e1a5122d13b8d1507",
+        "ownerId": "c9dac58c-2021-704b-7a11-239b819f4ff8",
+        "name": "Are all Walls Been constructed? Expected Answer: [PASS] | [FAIL]",
+        "description": "This is to check all IFC Wall Elements found in IFC File has been constructed after comparing against the point cloud",
+        "isVisible": true,
+        "parameters": []
+      }
+    ]
+  },
+  "inputFiles": [
+    {
+      "id": "1",
+      "name": "file1",
+      "signedUrl": "https://ibisa239bb743bb9403eadc882114de3bdd3133535-testshiyi.s3.ap-southeast-1.amazonaws.com/private/ap-southeast-1%3A0d48a6ec-62c4-c687-230a-17350af8e4f1/testIfc0?x-amz-content-sha256=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIAQ2SFG5RRKYN2AY4C%2F20240702%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20240702T065017Z&X-Amz-SignedHeaders=host&X-Amz-Expires=600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjELf%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaDmFwLXNvdXRoZWFzdC0xIkgwRgIhAKFE2xJdoU2i7bau4YWIaM6wo0T1HSCZpgxgRpMrpfAcAiEAzJ%2BhqhcwiOB4kIvrBe1BEA%2FPaXZIGo7fW8woPDS9C3Yq4gQIcBABGgwwNTcwNTM0NzM4OTAiDPkpRlJeMgjuCKs6BSq%2FBFWqYFF5RaH3%2B%2BO2B0ZcVRSKKcRJ4meklyQMXy8qKuc7hX0VXk%2FKhpCryOMU00sYBeNp4hga9xmiBVZyvFk6dGHR7L0UDMFpM2CfQcvTsKeoVOytylejmBVKzyCOJT935C99fl5npC5EvGYULRU%2FtkGlAiIBypysF3S3cbQFKWWcjiwTSQFferPXQG3%2BiGULPNgyfUpJDnXtlfotCyae1eS719SPWSTp8GsworHKIEP4btzU7z0a0SY4yUYL3uz7r8unEzdNFpSphoIJWsZkS7hxmr2ArqgfxyWHBClxz%2FFaIVhgYnKfOwWrOhn4QiGjhpXUXA6GsDPSvuTlDiFlyZL64G4zZ937Gjd45h5wTyaf3u9DTcFiYRTAPM8kyOIwIJwoIDJ2z2c7ofD4te1ARmi2Aaij2eZ%2BSJnoTZQHatAhIuTzaB2NgDwwGUuZ7gqmfBJEAISfnw9ncrSOeDE%2FoNs7QBiv5URIjeObq6NAmTBusspBrPcsDR9Onb7OL6ugrtPlsKClqtW9qDQnsSqFxmd3%2Flssox2KUlZVwe7CDy6RC68KZaPqutMxqo1qX9qZd3h7zcdIDTe8G2RkQvTsedETAg0uzOgVEuvBwV5aB5H%2F0E%2Bh5UoxmGsLgGZbyAWxeUGtn4ltvhwKS%2B4SF5gtCisiF1GlplHgqPCJsYPjLFkXJ8gXkzqapPuc%2FF5jBHu9%2F78N5r8hQ4vVPqUXNfZh3pgtZrnFjj%2Bby%2F1aKJzxTDPQVQP2PU9cxIBjeINJWq0bMKnGjrQGOoQCxx7rBTlgfnX%2F5%2BAVLkozPtf1BkAbQ9unuvo6zfIL%2F5BTrVY3CH2iETNJzUw8C9VC8WCHx5QphCwpDD0reGMfx7y6CyJl9gZ0LrjH7cClwD2Ytd6P2W2mS4oYqt%2BgxznApmL051L5h9um8eXJocXGFqQuwF%2BBZmpYnTqeLoNFGm6c1z7AL6NuTL5t55hMxIFbomXFujzLoZ90P%2BVeO3WDXpLcZ3ZPqNI2qvUDObfeKs0Y2yljaNDvQR0hHmLsFARwF%2F%2FykVbMQcf5OFEOLtzMj4WbdRGUCZU9FoKwNxR2g9G%2BslNMUv7msCgE4iAGM6Awu5qvumLZEZ8Hd8Ww97OYp4B7tuU%3D&X-Amz-Signature=811b83fa9e1345add9b981c05662e6b0cb754a7014c41488e8a86dfc210032c1",
+      "fileCategory": {
+        "name": "POINT CLOUD",
+        "acceptableExtensions": [".las", ".e57"]
+      }
+    },
+    {
+      "id": "2",
+      "name": "file2",
+      "signedUrl": "https://ibisa239bb743bb9403eadc882114de3bdd3133535-testshiyi.s3.ap-southeast-1.amazonaws.com/private/ap-southeast-1%3A0d48a6ec-62c4-c687-230a-17350af8e4f1/testPc0?x-amz-content-sha256=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=ASIAQ2SFG5RRD5Y4FQOI%2F20240702%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20240702T065017Z&X-Amz-SignedHeaders=host&X-Amz-Expires=600&X-Amz-Security-Token=IQoJb3JpZ2luX2VjELf%2F%2F%2F%2F%2F%2F%2F%2F%2F%2FwEaDmFwLXNvdXRoZWFzdC0xIkYwRAIga9AeAaldtDbIc%2BkJwp2fR2QjwzYOBqz%2FDSR3iQiShp0CIFJ0uMm4GjEjAUOxJRW1pwc9wZN1m78OavYV34cjR3vIKuIECHAQARoMMDU3MDUzNDczODkwIgz8k4mIarbxxHGepoIqvwTbf8oMvGLwyQIY%2FvB689TtMbpQtlQr1cYZUVXAIobdfGIt81mQYYq9YuRyxGTFiXzirAx4hfGKs4EDW7cQZvWFw7VMPQHN5tXi9vC55nNhp6Sxv3p6LGufDic5OzrOaZQYfsPA%2FiU7%2BPP%2FvE%2FeNcWUdruFCLSSyeSynLxXg1hDz71lLlPRCFRlfHqLakYHbMSYJIxmpaH%2FiWNnBk12ExkWJTSOzF0gOf705E%2Bjv6acvh9GEtX1r57W43l1Z4140vReX5xCI0O%2FCwfK4fV4Le3myevh%2Fxk6zdPTXwEYf3yj8dury4T4bmYCX1KM%2BBuwWidmSHjqD9mr7Rryi9u1wqdeCfruJjM7zUDUBBQkuOz6uAidZaPE6mPJI9hVBnvW36S9yGlUJ2QnHwGS0R4ywgAr9MkY51i2qEBxBD%2FriO5wdsB2o%2BK8UIo%2BV457FG0Aft1H6mizlh4Px5%2FXZqz2R8NRFGfrf6tUa5P%2BuZD60KRowr81oP5Fh1v8yd23JHVoDt1uwxMXEimc4AegIxQz2dGZJ0mKiyDrH7gAfG%2FXqe9VgpL4p3%2BJPOrwuG%2FKn1lpaGaeMoC26sNe9Uy7JZraR9nQDUPpeagWAn7wfWSMHnZCo%2FtK79aw1moj6Qui7t49t1BhKrL0JiJJORolydujm68R1BvbRqj2UIsonSTsyOenXiRjDGBR0NWZpCJayu%2BGnOrrKieOwMw6%2BN9wcILuJEHf84%2BDXc%2FGoU3A8QYkeAG42%2FbjArVsqunhbq%2BBAIkUnDCpxo60BjqGAntMLDnzc0N65ufUY8CD3UURKMAIkoMgVLti1tutRPx3lgwSFXh5GRqUd0iQ1%2Fy5%2FFaOR5AYcrGTJLq3iTDznHSEUp%2F2nRNu%2FvwNlqLKJw3Y1eKKTsuHxs18DxG08uHGLfvTiMzJ3GbpjC0J6AHiB7ONIwzePVRIPUuvDbQj0sh6fVB0jXJHBt6f0nFqx2opXQv964D8poqiLe3TPScDkT6x7yt3MjFxuUUUL0%2Foq%2FNQxLxsKT0QuLEN%2B4GE29d2BRVCu2DoJVuL14%2B89vczrf7vI5%2FR9%2BsptH52MufSORPejdv2xR8cthjx6IoHVDLVRAhnMtVqz80F6hKxTeXKPyajW6hlTzs%3D&X-Amz-Signature=cf9e85381f45da4315dad9977f249e66abe71d9b8ce063d5d2f0026ada1577c3",
+      "fileCategory": {
+        "name": "IFC",
+        "acceptableExtensions": [".ifc"]
+      }
+    }
+  ],
+  "result": {
+    "id": "66752c9443768dec707b9373",
+    "probeId": "6672640c1a5122d13b8d1504",
+    "status": "PASS",
+    "description": "All Sub Probes has Passed",
+    "subProbeResults": [
+      {
+        "id": "1",
+        "subProbeId": "6672640e1a5122d13b8d1507",
+        "status": "FAIL",
+        "description": "all checks passed",
+        "elements": [
+          {
+            "id": "820d1ec0-7fc8-41f9-bbf1-1efc4838e8c9",
+            "elementId": "0Dx8RM97v2HwhaMsE4FkZT",
+            "fileId": "123",
+            "status": "PASS",
+            "expectedValue": "PASS",
+            "actualValue": "PASS",
+            "parameterId": null,
+            "description": "Wall of IFCGUID [0Dx8RM97v2HwhaMsE4FkZT] has been constructed",
+            "valueType": "STRING",
+            "actualValueUnit": null,
+            "expectedValueUnit": null,
+            "coordinates": null
+          },
+          {
+            "id": "820d1ec0-7fc8-41f9-bbf1-1efc4838e8c0",
+            "elementId": "0Dx8RM97v2HwhaMsE4Fkzx",
+            "fileId": "123",
+            "status": "PASS",
+            "expectedValue": "PASS",
+            "actualValue": "PASS",
+            "parameterId": null,
+            "description": "Wall of IFCGUID [0Dx8RM97v2HwhaMsE4Fkzx] has been constructed",
+            "valueType": "STRING",
+            "actualValueUnit": null,
+            "expectedValueUnit": null,
+            "coordinates": null
+          },
+          {
+            "id": "820d1ec0-7fc8-41f9-bbf1-1efc4838e8c3",
+            "elementId": "0Dx8RM97v2HwhaMsE4Fkyz",
+            "fileId": "123",
+            "status": "FAIL",
+            "expectedValue": "PASS",
+            "actualValue": "FAIL",
+            "parameterId": null,
+            "description": "Wall of IFCGUID [0Dx8RM97v2HwhaMsE4Fkyz] has not been constructed",
+            "valueType": "STRING",
+            "actualValueUnit": null,
+            "expectedValueUnit": null,
+            "coordinates": null
+          }
+        ]
+      },
+      {
+        "id": "2",
+        "subProbeId": "6672640e1a5122d13b8d1508",
+        "status": "FAIL",
+        "description": "all checks passed",
+        "elements": [
+          {
+            "id": "820d1ec0-7fc8-41f9-bbf1-1efc4838e8c9",
+            "elementId": "0Dx8RM97v2HwhaMsE4FkXj",
+            "fileId": "123",
+            "status": "PASS",
+            "expectedValue": "PASS",
+            "actualValue": "PASS",
+            "parameterId": null,
+            "description": "IfcSlab of IFCGUID [0Dx8RM97v2HwhaMsE4FkXj] has been constructed",
+            "valueType": "STRING",
+            "actualValueUnit": null,
+            "expectedValueUnit": null,
+            "coordinates": {
+              "X": 1.0,
+              "Y": 1.0,
+              "Z": 0.0
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "error": null,
+  "webhookUrl": "--<testtest>--"
+}
